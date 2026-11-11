@@ -36,10 +36,18 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
   </header>
 
   <div class="stats">
-    <div class="stat"><strong>5</strong><span>งานที่เสร็จแล้ว</span></div>
-    <div class="stat"><strong>2</strong><span>งานถัดไป</span></div>
+    <div class="stat"><strong>7</strong><span>งานที่เสร็จแล้ว</span></div>
+    <div class="stat"><strong>3</strong><span>งานถัดไป</span></div>
     <div class="stat"><strong>1</strong><span>หมวดงานหลัก: 3D</span></div>
   </div>
+
+  <section>
+    <div class="section-head"><h2>วิธีการทำงาน 3D</h2><span class="legend">Measure → Record → Model → Verify</span></div>
+    <article class="daily">
+      <p class="subtitle">วัดขนาดพื้นที่ห้องและอุปกรณ์ไฟฟ้า บันทึกและรวบรวมข้อมูลก่อนสร้างโมเดล 3D โดยใช้ Claude เชื่อมต่อ MCP Blender เพื่อช่วยปั้น ปรับปรุง และตรวจสอบโมเดล</p>
+      <p class="result">เอกสารอ้างอิงการจัดการโครงการ: <a href="https://github.com/bcbieat/Digital-Twin-x-Home-Assistant/blob/main/project_management.html" target="_blank" rel="noreferrer">project_management.html บน GitHub</a></p>
+    </article>
+  </section>
 
   <section>
     <div class="section-head"><h2>รายการงาน</h2><span class="legend">Task → Status → Result</span></div>
@@ -49,7 +57,10 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
       <article class="task"><div class="task-top"><h3>ปรับปรุงโมเดล 3D ห้อง A3, A4 และพื้นที่เชื่อมต่อ</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> ปรับปรุงโครงสร้างห้อง หลังคา หน้าต่าง และพื้นที่เชื่อมต่อให้ใกล้เคียงกับข้อมูลที่สำรวจ</div></article>
       <article class="task"><div class="task-top"><h3>เพิ่มรายละเอียดตู้เบรกเกอร์ 6 ช่อง</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> สร้างตู้เบรกเกอร์ 6 ช่อง พร้อมเตรียมรองรับการจำลองเปิด–ปิดแยกแต่ละช่อง</div></article>
       <article class="task"><div class="task-top"><h3>สร้างไฟล์โมเดลและภาพสำหรับตรวจสอบ</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> สร้างไฟล์โมเดล <code>.blend</code>, <code>.glb</code> และภาพเรนเดอร์สำหรับตรวจสอบความถูกต้องของโมเดล</div></article>
-      <article class="task"><div class="task-top"><h3>ตรวจสอบตำแหน่งอุปกรณ์ในห้อง A3</h3><span class="tag next">งานถัดไป</span></div><div class="result"><b>เป้าหมาย:</b> ตรวจสอบและปรับตำแหน่งอุปกรณ์ภายในห้อง A3 ให้ถูกต้องตามข้อมูลหน้างาน</div></article>
+      <article class="task"><div class="task-top"><h3>ปรับปรุงโมเดลกล้อง A3</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> เพิ่มตัวกล้อง เลนส์ ฐานยึด ข้อต่อ และสายไฟ โดยรักษาตำแหน่งที่กำหนดไว้ในห้อง A3</div></article>
+      <article class="task"><div class="task-top"><h3>จัดทำและทบทวนผังเฟอร์นิเจอร์</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> วิเคราะห์ภาพถ่ายและ Top View เพื่อทำความเข้าใจตำแหน่งโต๊ะ เก้าอี้ ต้นไม้ ชั้นวาง กล่อง และกระจก โดยยกเลิก blockout ที่วางคลาดเคลื่อนแล้ว</div></article>
+      <article class="task"><div class="task-top"><h3>ตรวจสอบตำแหน่งอุปกรณ์ไฟฟ้า</h3><span class="tag next">งานถัดไป</span></div><div class="result"><b>เป้าหมาย:</b> ตรวจสอบและล็อกตำแหน่งอุปกรณ์ใน A3, A4 และพื้นที่เชื่อม โดยไม่เขียนทับตำแหน่งที่ผู้ใช้ปรับเอง</div></article>
+      <article class="task"><div class="task-top"><h3>ปรับปรุง geometry และวัสดุอุปกรณ์</h3><span class="tag next">งานถัดไป</span></div><div class="result"><b>เป้าหมาย:</b> เพิ่ม bevel, รอยต่อ, จุดยึด, roughness และ texture ให้ breaker, switch, outlet, AC, TV, camera และ LED ดูสมจริงขึ้น</div></article>
       <article class="task"><div class="task-top"><h3>ปรับปรุงระบบแสดงผลโมเดลบนหน้าเว็บ</h3><span class="tag next">งานถัดไป</span></div><div class="result"><b>เป้าหมาย:</b> ปรับปรุงการแสดงผลโมเดล 3D และเตรียมระบบโต้ตอบสำหรับการใช้งานบนเว็บไซต์</div></article>
     </div>
   </section>
@@ -59,13 +70,16 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
     <article class="daily">
       <h3>งานที่ดำเนินการวันนี้</h3>
       <ul>
-        <li>รวบรวมผลการดำเนินงานด้านการสำรวจและจัดทำข้อมูลห้อง A3 และ A4</li>
+        <li>รวบรวมผลการดำเนินงานด้านการสำรวจและจัดทำข้อมูลห้อง A3, A4 และพื้นที่เชื่อมต่อ</li>
         <li>สรุปผลการจัดทำรายการอุปกรณ์สำหรับใช้ในโมเดล 3D</li>
-        <li>บันทึกผลการปรับปรุงโมเดล 3D ห้อง A3, A4 และพื้นที่เชื่อมต่อ</li>
-        <li>สรุปการสร้างตู้เบรกเกอร์ 6 ช่องและการเตรียมระบบจำลองเปิด–ปิด</li>
+        <li>บันทึกผลการปรับปรุงโมเดล 3D ห้อง A3, A4 และพื้นที่เชื่อมต่อ รวมถึงหลังคาและโครงสร้างหลัก</li>
+        <li>สรุปการสร้างตู้เบรกเกอร์ 6 ช่องและการเตรียมระบบจำลองเปิด–ปิดแยกแต่ละช่อง</li>
+        <li>ปรับปรุงโมเดลกล้อง A3 ด้วยเลนส์ ฐานยึด ข้อต่อ และสายไฟ</li>
+        <li>ตรวจสอบการรักษาตำแหน่ง TV, สวิตช์ และอุปกรณ์ที่ผู้ใช้ขยับด้วยตนเอง</li>
+        <li>วิเคราะห์ผังเฟอร์นิเจอร์จากภาพถ่ายและ Top View และลบ blockout ที่ยังไม่ตรงกับผัง</li>
         <li>จัดทำรายการไฟล์โมเดลและภาพเรนเดอร์สำหรับตรวจสอบ</li>
       </ul>
-      <div class="next-box"><b>แผนงานถัดไป:</b> ตรวจสอบตำแหน่งอุปกรณ์ในห้อง A3 และปรับปรุงระบบแสดงผลโมเดล 3D บนหน้าเว็บไซต์</div>
+      <div class="next-box"><b>แผนงานถัดไป:</b> ตรวจสอบตำแหน่งอุปกรณ์ไฟฟ้าเป็นลำดับแรก จากนั้นปรับ geometry, material และ texture เพื่อเพิ่มความสมจริง ก่อนพัฒนาระบบแสดงผลโมเดล 3D บนหน้าเว็บไซต์</div>
     </article>
   </section>
 
