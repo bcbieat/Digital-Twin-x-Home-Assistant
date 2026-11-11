@@ -1,0 +1,73 @@
+<title>A3–A4 Project Board</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+:root {
+  --bg:#f4f1ea; --surface:#fffdf8; --ink:#17211c; --muted:#68736c;
+  --line:#d9ddd6; --green:#176b4d; --green-soft:#dff0e7; --amber:#9a6414;
+  --amber-soft:#fff0cd; --blue:#315f82; --blue-soft:#e2eef6; --shadow:rgba(23,33,28,.08);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:#111713; --surface:#19211c; --ink:#edf5ef; --muted:#aebbb2;
+    --line:#344139; --green:#72d2a8; --green-soft:#173d2d; --amber:#efc16c;
+    --amber-soft:#473716; --blue:#8dc0e1; --blue-soft:#1b3546; --shadow:rgba(0,0,0,.28); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:#111713; --surface:#19211c; --ink:#edf5ef; --muted:#aebbb2;
+  --line:#344139; --green:#72d2a8; --green-soft:#173d2d; --amber:#efc16c;
+  --amber-soft:#473716; --blue:#8dc0e1; --blue-soft:#1b3546; --shadow:rgba(0,0,0,.28); color-scheme:dark;
+}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans Thai",Tahoma,"Segoe UI",sans-serif;padding-block:32px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{width:min(1080px,100%);margin:auto;display:grid;gap:24px}.hero{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;padding:26px 28px;background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 26px var(--shadow)}
+.kicker{font-size:.76rem;font-weight:750;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}h1{font-size:clamp(1.7rem,4vw,2.55rem);line-height:1.1;margin:.4rem 0 .6rem;text-wrap:balance}.subtitle{margin:0;color:var(--muted);max-width:62ch}.date{color:var(--muted);font-size:.9rem;white-space:nowrap}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}.stat strong{display:block;font-size:1.65rem}.stat span{color:var(--muted);font-size:.84rem}
+section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px}h2{font-size:1.1rem;margin:0}.legend{font-size:.8rem;color:var(--muted)}.tasks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.task{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:17px;display:grid;gap:11px}.task-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.task h3{font-size:1rem;margin:0;line-height:1.45}.tag{flex:none;border-radius:999px;padding:5px 9px;font-size:.72rem;font-weight:750}.done{background:var(--green-soft);color:var(--green)}.next{background:var(--amber-soft);color:var(--amber)}.planned{background:var(--blue-soft);color:var(--blue)}.result{font-size:.86rem;color:var(--muted);line-height:1.6}.result b{color:var(--ink)}
+.daily{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;display:grid;gap:14px}.daily h3{margin:0;font-size:1rem}.daily ul{margin:0;padding-left:1.35rem;display:grid;gap:7px;color:var(--muted);line-height:1.55}.daily li::marker{color:var(--green)}.next-box{border-left:4px solid var(--amber);background:var(--amber-soft);padding:13px 15px;border-radius:0 10px 10px 0;color:var(--ink);font-size:.9rem;line-height:1.6}.footer{font-size:.77rem;color:var(--muted);text-align:center}
+@media(max-width:700px){body{padding-block:18px 36px}.hero{padding:21px}.stats{grid-template-columns:1fr}.tasks{grid-template-columns:1fr}}
+</style>
+<main>
+  <header class="hero">
+    <div>
+      <div class="kicker">Project Management</div>
+      <h1>โครงการพัฒนาโมเดล 3D ห้อง A3 และ A4</h1>
+      <p class="subtitle">ติดตามงานสำรวจ จัดทำข้อมูลอุปกรณ์ พัฒนาโมเดล 3D และเตรียมระบบแสดงผลบนเว็บไซต์</p>
+    </div>
+    <div class="date">อัปเดตล่าสุด: 11 พฤศจิกายน 2569</div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><strong>5</strong><span>งานที่เสร็จแล้ว</span></div>
+    <div class="stat"><strong>2</strong><span>งานถัดไป</span></div>
+    <div class="stat"><strong>1</strong><span>หมวดงานหลัก: 3D</span></div>
+  </div>
+
+  <section>
+    <div class="section-head"><h2>รายการงาน</h2><span class="legend">Task → Status → Result</span></div>
+    <div class="tasks">
+      <article class="task"><div class="task-top"><h3>สำรวจและเก็บข้อมูลห้อง A3 และ A4</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> เก็บข้อมูลขนาด พื้นที่ และตำแหน่งอุปกรณ์ภายในห้อง เพื่อใช้เป็นข้อมูลสำหรับสร้างโมเดล 3D</div></article>
+      <article class="task"><div class="task-top"><h3>จัดทำตารางรายการอุปกรณ์ 3D</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> จัดทำรายการอุปกรณ์และองค์ประกอบที่ต้องใช้ในโมเดล 3D ของห้อง A3, A4 และพื้นที่เชื่อมต่อ</div></article>
+      <article class="task"><div class="task-top"><h3>ปรับปรุงโมเดล 3D ห้อง A3, A4 และพื้นที่เชื่อมต่อ</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> ปรับปรุงโครงสร้างห้อง หลังคา หน้าต่าง และพื้นที่เชื่อมต่อให้ใกล้เคียงกับข้อมูลที่สำรวจ</div></article>
+      <article class="task"><div class="task-top"><h3>เพิ่มรายละเอียดตู้เบรกเกอร์ 6 ช่อง</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> สร้างตู้เบรกเกอร์ 6 ช่อง พร้อมเตรียมรองรับการจำลองเปิด–ปิดแยกแต่ละช่อง</div></article>
+      <article class="task"><div class="task-top"><h3>สร้างไฟล์โมเดลและภาพสำหรับตรวจสอบ</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> สร้างไฟล์โมเดล <code>.blend</code>, <code>.glb</code> และภาพเรนเดอร์สำหรับตรวจสอบความถูกต้องของโมเดล</div></article>
+      <article class="task"><div class="task-top"><h3>ตรวจสอบตำแหน่งอุปกรณ์ในห้อง A3</h3><span class="tag next">งานถัดไป</span></div><div class="result"><b>เป้าหมาย:</b> ตรวจสอบและปรับตำแหน่งอุปกรณ์ภายในห้อง A3 ให้ถูกต้องตามข้อมูลหน้างาน</div></article>
+      <article class="task"><div class="task-top"><h3>ปรับปรุงระบบแสดงผลโมเดลบนหน้าเว็บ</h3><span class="tag next">งานถัดไป</span></div><div class="result"><b>เป้าหมาย:</b> ปรับปรุงการแสดงผลโมเดล 3D และเตรียมระบบโต้ตอบสำหรับการใช้งานบนเว็บไซต์</div></article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>สรุปงานประจำวัน</h2><span class="legend">11 พฤศจิกายน 2569</span></div>
+    <article class="daily">
+      <h3>งานที่ดำเนินการวันนี้</h3>
+      <ul>
+        <li>รวบรวมผลการดำเนินงานด้านการสำรวจและจัดทำข้อมูลห้อง A3 และ A4</li>
+        <li>สรุปผลการจัดทำรายการอุปกรณ์สำหรับใช้ในโมเดล 3D</li>
+        <li>บันทึกผลการปรับปรุงโมเดล 3D ห้อง A3, A4 และพื้นที่เชื่อมต่อ</li>
+        <li>สรุปการสร้างตู้เบรกเกอร์ 6 ช่องและการเตรียมระบบจำลองเปิด–ปิด</li>
+        <li>จัดทำรายการไฟล์โมเดลและภาพเรนเดอร์สำหรับตรวจสอบ</li>
+      </ul>
+      <div class="next-box"><b>แผนงานถัดไป:</b> ตรวจสอบตำแหน่งอุปกรณ์ในห้อง A3 และปรับปรุงระบบแสดงผลโมเดล 3D บนหน้าเว็บไซต์</div>
+    </article>
+  </section>
+
+  <div class="footer">Innovative Village · 3D Modeling Project</div>
+</main>
