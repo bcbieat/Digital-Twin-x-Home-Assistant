@@ -1,0 +1,27 @@
+# Claude local state
+.claude/worktrees/
+.claude/settings.local.json
+
+# Python caches
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Blender recovery and temporary files
+*.blend1
+*.blend2
+*.blend3
+*.tmp
+*.temp
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Local logs and scratch files
+*.log
+*.bak
+*.swp

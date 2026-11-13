@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "0.1-draft",
+  "status": "placeholder-unverified",
+  "assets": [
+    {
+      "objectId": "DEV_A3_LIGHT_CEILING_01",
+      "roomId": "A3",
+      "assetFile": "blender/exports/A3_interior_measured.glb",
+      "nodeName": "DEV_A3_LIGHT_CEILING_01",
+      "entityId": null,
+      "domain": "light",
+      "capabilities": ["visual_on", "visual_off", "select"],
+      "circuit": null,
+      "verification": "pending-site-and-home-assistant-inventory"
+    },
+    {
+      "objectId": "DEV_A3_A4_LIGHT_TRANSITION_01",
+      "roomId": "A3-A4-TRANSITION",
+      "assetFile": "blender/exports/A3_A4_transition_interior_measured.glb",
+      "nodeName": "DEV_A3_A4_LIGHT_TRANSITION_01",
+      "entityId": null,
+      "domain": "light",
+      "capabilities": ["visual_on", "visual_off", "select"],
+      "circuit": null,
+      "verification": "pending-platform-placement-decision"
+    },
+    {
+      "objectId": "DEV_A4_LIGHT_CEILING_01",
+      "roomId": "A4",
+      "assetFile": "blender/exports/A4_interior_measured.glb",
+      "nodeName": "DEV_A4_LIGHT_CEILING_01",
+      "entityId": null,
+      "domain": "light",
+      "capabilities": ["visual_on", "visual_off", "select"],
+      "circuit": null,
+      "verification": "pending-site-and-home-assistant-inventory"
+    },
+    {
+      "objectId": "ELEC_A3_PANEL_01",
+      "roomId": "A3",
+      "assetFile": "blender/exports/A3_interior_measured.glb",
+      "nodeName": "ELEC_A3_PANEL_01",
+      "entityId": null,
+      "domain": null,
+      "capabilities": ["select", "visual-only"],
+      "circuit": null,
+      "verification": "protective-equipment-not-authorized-for-control"
+    },
+    {
+      "objectId": "ELEC_A4_PANEL_01",
+      "roomId": "A4",
+      "assetFile": "blender/exports/A4_interior_measured.glb",
+      "nodeName": "ELEC_A4_PANEL_01",
+      "entityId": null,
+      "domain": null,
+      "capabilities": ["select", "visual-only"],
+      "circuit": null,
+      "verification": "protective-equipment-not-authorized-for-control"
+    }
+  ]
+}

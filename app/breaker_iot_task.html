@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A3-A4 Breaker 3D Simulation &amp; IoT Mapping • Innovative Village</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #0f172a;
+      --card-subtle: #131d35;
+      --border: #1e293b;
+      --border-bright: #334155;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --cyan: #38bdf8;
+      --cyan-dark: #0284c7;
+      --emerald: #10b981;
+      --amber: #fbbf24;
+      --rose: #fb7185;
+      --purple: #c084fc;
+      --font-main: 'Prompt', 'Inter', sans-serif;
+      --font-code: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-main);
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 80px;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--cyan); }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 30px 24px;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(19, 29, 53, 0.85));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.45);
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #f59e0b, #ef4444, #38bdf8, #10b981);
+    }
+
+    .badge-bar {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--amber);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+    }
+
+    .pill-cyan {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--cyan);
+      border-color: rgba(56, 189, 248, 0.35);
+    }
+
+    .pill-rose {
+      background: rgba(251, 113, 133, 0.15);
+      color: var(--rose);
+      border-color: rgba(251, 113, 133, 0.35);
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: var(--text-muted);
+      font-size: 14.5px;
+      max-width: 950px;
+    }
+
+    /* Warning Alert Box */
+    .alert-box {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-left: 4px solid #ef4444;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 28px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .alert-icon {
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .alert-content h3 {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #f87171;
+      margin-bottom: 4px;
+    }
+
+    .alert-content p {
+      font-size: 13px;
+      color: #fca5a5;
+      line-height: 1.5;
+    }
+
+    /* Grid Layout */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    @media (max-width: 992px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    /* Card Box */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Interactive Breaker Demo Panel */
+    .breaker-panel-mockup {
+      background: #111827;
+      border: 2px solid #374151;
+      border-radius: 12px;
+      padding: 20px;
+      position: relative;
+    }
+
+    .panel-header-rail {
+      background: #1f2937;
+      border-radius: 6px;
+      padding: 8px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      border: 1px solid #374151;
+    }
+
+    .din-rail {
+      background: repeating-linear-gradient(90deg, #1f2937, #1f2937 12px, #111827 12px, #111827 16px);
+      padding: 18px 12px;
+      border-radius: 8px;
+      border: 1px solid #374151;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 8px;
+    }
+
+    @media (max-width: 650px) {
+      .din-rail { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .mcb-module {
+      background: #1e293b;
+      border: 1px solid #475569;
+      border-radius: 6px;
+      padding: 10px 6px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mcb-module:hover {
+      border-color: var(--cyan);
+      transform: translateY(-2px);
+    }
+
+    .mcb-label-slot {
+      font-family: var(--font-code);
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .mcb-slot-name {
+      font-size: 11px;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.2;
+      min-height: 26px;
+    }
+
+    .lever-switch {
+      width: 24px;
+      height: 48px;
+      background: #0f172a;
+      border-radius: 4px;
+      border: 1px solid #64748b;
+      position: relative;
+      transition: background 0.2s;
+    }
+
+    .lever-thumb {
+      width: 20px;
+      height: 22px;
+      background: #ef4444;
+      border-radius: 3px;
+      position: absolute;
+      left: 1px;
+      bottom: 2px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .mcb-module.active .lever-thumb {
+      bottom: 22px;
+      background: #10b981;
+    }
+
+    .mcb-status-flag {
+      font-family: var(--font-code);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 3px;
+      background: rgba(239, 68, 68, 0.2);
+      color: #f87171;
+    }
+
+    .mcb-module.active .mcb-status-flag {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+    }
+
+    /* Room Load Simulation Grid */
+    .room-visual-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .room-fixture-card {
+      background: #0b1120;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .fixture-indicator {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #475569;
+      box-shadow: 0 0 0 0 rgba(0,0,0,0);
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .room-fixture-card.powered .fixture-indicator {
+      background: var(--amber);
+      box-shadow: 0 0 12px var(--amber);
+    }
+
+    .room-fixture-card.ac-powered .fixture-indicator {
+      background: var(--cyan);
+      box-shadow: 0 0 12px var(--cyan);
+    }
+
+    .fixture-info h4 {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .fixture-info p {
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+
+    /* Tasks Checklist */
+    .task-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .task-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 14px;
+      background: var(--card-subtle);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+
+    .task-item:hover {
+      background: #1a2744;
+      border-color: var(--border-bright);
+    }
+
+    .task-item.done {
+      background: rgba(16, 185, 129, 0.08);
+      border-color: rgba(16, 185, 129, 0.25);
+    }
+
+    .task-item.done .task-title {
+      text-decoration: line-through;
+      color: var(--text-dim);
+    }
+
+    .task-check {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      border: 1.5px solid var(--border-bright);
+      background: var(--card-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .task-item.done .task-check {
+      background: var(--emerald);
+      border-color: var(--emerald);
+    }
+
+    .task-check::after {
+      content: '✓';
+      color: #090d16;
+      font-size: 11px;
+      font-weight: 900;
+      display: none;
+    }
+
+    .task-item.done .task-check::after {
+      display: block;
+    }
+
+    .task-text-group {
+      flex-grow: 1;
+    }
+
+    .task-title {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .task-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    /* Code block */
+    pre {
+      background: #020617;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      overflow-x: auto;
+      font-family: var(--font-code);
+      font-size: 12px;
+      color: #e2e8f0;
+      line-height: 1.5;
+    }
+
+    code {
+      font-family: var(--font-code);
+    }
+
+    .code-comment { color: #64748b; font-style: italic; }
+    .code-keyword { color: #f43f5e; font-weight: 600; }
+    .code-str { color: #38bdf8; }
+    .code-prop { color: #a78bfa; }
+    .code-num { color: #f59e0b; }
+
+    /* Circuit Mapping Table */
+    .table-wrapper {
+      overflow-x: auto;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      margin-top: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      text-align: left;
+    }
+
+    th {
+      background: var(--card-subtle);
+      color: var(--text-muted);
+      padding: 10px 12px;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border);
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(30, 41, 59, 0.4); }
+
+    .tag-room {
+      background: #1e293b;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: var(--font-code);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--cyan);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--text-dim);
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="badge-bar">
+        <span class="pill">ELECTRICAL DIGITAL TWIN</span>
+        <span class="pill pill-cyan">BLENDER RIGGING &amp; PIVOT</span>
+        <span class="pill pill-rose">CIRCUIT SIMULATION</span>
+      </div>
+      <h1>A3 &amp; A4 Electrical Breaker Modeling &amp; IoT Mapping Spec</h1>
+      <p>แนวทางเชิงลึกสำหรับการปั้นตู้เบรกเกอร์ 3D, การจำลองคันโยก (Kinematics Lever Rotation), ตารางผูกวงจรไฟฟ้า (Circuit Mapping) และการเชื่อมต่อสู่แพลตฟอร์ม Home Assistant IoT</p>
+    </header>
+
+    <!-- Critical Engineering Warning -->
+    <div class="alert-box">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-content">
+        <h3>ข้อกำหนดด้านความปลอดภัยทางวิศวกรรมไฟฟ้า (Safety Boundary)</h3>
+        <p>เบรกเกอร์ (MCB/RCBO) เป็นอุปกรณ์ป้องกันอันตราย ไม่ใช่สวิตช์เปิด-ปิดประจำวัน การสั่งงานระยะไกลจริงผ่าน Home Assistant ต้องมี <strong>Smart Circuit Breaker / Smart Din-Rail Relay</strong> ที่ได้มาตรฐานและผ่านการตรวจสอบโดยวิศวกรไฟฟ้าเท่านั้น ในระยะแรกให้เน้นที่ <strong>Digital Twin Visual Simulation (จำลองสถานะคันโยกใน 3D และตัดวงจรเสมือน)</strong> เป็นหลัก</p>
+      </div>
+    </div>
+
+    <!-- Live Interactive Breaker Simulator Box -->
+    <div class="card" style="margin-bottom: 28px;">
+      <div class="card-title">
+        <span>⚡</span> แผงทดสอบจำลองคันโยกเบรกเกอร์และวงจรไฟฟ้า (Interactive Breaker Simulation)
+      </div>
+      <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">
+        ลองคลิกที่คันโยกของแต่ละช่องเพื่อทดสอบ <strong>Logic การตัดวงจร</strong>: เมื่อสับเบรกเกอร์ช่องใดลง (OFF) อุปกรณ์ไฟฟ้าในห้อง A3 หรือ A4 ที่ต่อพ่วงกับวงจรนั้นจะดับทันที
+      </p>
+
+      <div class="breaker-panel-mockup">
+        <div class="panel-header-rail">
+          <div style="font-size: 13px; font-weight: 700; color: #fff;">DISTRIBUTION BOARD: ROOM A3 &amp; A4</div>
+          <div style="font-size: 11px; font-family: var(--font-code); color: var(--amber);">230V 50Hz 1-PHASE</div>
+        </div>
+
+        <div class="din-rail">
+          <!-- Main Breaker -->
+          <div class="mcb-module active" id="mcb-main" onclick="toggleBreaker('main')">
+            <span class="mcb-label-slot">MAIN 63A</span>
+            <div class="mcb-slot-name">Main Incomer</div>
+            <div class="lever-switch">
+              <div class="lever-thumb"></div>
+            </div>
+            <span class="mcb-status-flag" id="flag-main">ON</span>
+          </div>
+
+          <!-- Light A3 -->
+          <div class="mcb-module active" id="mcb-light-a3" onclick="toggleBreaker('light-a3')">
+            <span class="mcb-label-slot">MCB 10A</span>
+            <div class="mcb-slot-name">ไฟเพดาน A3</div>
+            <div class="lever-switch">
+              <div class="lever-thumb"></div>
+            </div>
+            <span class="mcb-status-flag" id="flag-light-a3">ON</span>
+          </div>
+
+          <!-- Light A4 -->
+          <div class="mcb-module active" id="mcb-light-a4" onclick="toggleBreaker('light-a4')">
+            <span class="mcb-label-slot">MCB 10A</span>
+            <div class="mcb-slot-name">ไฟเพดาน A4</div>
+            <div class="lever-switch">
+              <div class="lever-thumb"></div>
+            </div>
+            <span class="mcb-status-flag" id="flag-light-a4">ON</span>
+          </div>
+
+          <!-- AC A3 -->
+          <div class="mcb-module active" id="mcb-ac-a3" onclick="toggleBreaker('ac-a3')">
+            <span class="mcb-label-slot">MCB 16A</span>
+            <div class="mcb-slot-name">เครื่องปรับอากาศ A3</div>
+            <div class="lever-switch">
+              <div class="lever-thumb"></div>
+            </div>
+            <span class="mcb-status-flag" id="flag-ac-a3">ON</span>
+          </div>
+
+          <!-- AC A4 -->
+          <div class="mcb-module active" id="mcb-ac-a4" onclick="toggleBreaker('ac-a4')">
+            <span class="mcb-label-slot">MCB 16A</span>
+            <div class="mcb-slot-name">เครื่องปรับอากาศ A4</div>
+            <div class="lever-switch">
+              <div class="lever-thumb"></div>
+            </div>
+            <span class="mcb-status-flag" id="flag-ac-a4">ON</span>
+          </div>
+
+          <!-- Plugs -->
+          <div class="mcb-module active" id="mcb-plug" onclick="toggleBreaker('plug')">
+            <span class="mcb-label-slot">RCBO 16A</span>
+            <div class="mcb-slot-name">ปลั๊ก &amp; กล้อง A3/A4</div>
+            <div class="lever-switch">
+              <div class="lever-thumb"></div>
+            </div>
+            <span class="mcb-status-flag" id="flag-plug">ON</span>
+          </div>
+        </div>
+
+        <!-- Room Load Fixtures Grid -->
+        <div class="room-visual-grid">
+          <div class="room-fixture-card powered" id="fix-light-a3">
+            <div class="fixture-indicator"></div>
+            <div class="fixture-info">
+              <h4>หลอดไฟติดเพดาน A3</h4>
+              <p>วงจร: MCB-01 (Light A3) • สภาพ: จ่ายกระแสปกติ</p>
+            </div>
+          </div>
+
+          <div class="room-fixture-card powered" id="fix-light-a4">
+            <div class="fixture-indicator"></div>
+            <div class="fixture-info">
+              <h4>หลอดไฟติดเพดาน A4</h4>
+              <p>วงจร: MCB-02 (Light A4) • สภาพ: จ่ายกระแสปกติ</p>
+            </div>
+          </div>
+
+          <div class="room-fixture-card ac-powered" id="fix-ac-a3">
+            <div class="fixture-indicator"></div>
+            <div class="fixture-info">
+              <h4>แอร์ติดผนัง A3</h4>
+              <p>วงจร: MCB-03 (AC A3) • สภาพ: มอเตอร์ทำงาน</p>
+            </div>
+          </div>
+
+          <div class="room-fixture-card ac-powered" id="fix-ac-a4">
+            <div class="fixture-indicator"></div>
+            <div class="fixture-info">
+              <h4>แอร์ติดผนัง A4</h4>
+              <p>วงจร: MCB-04 (AC A4) • สภาพ: มอเตอร์ทำงาน</p>
+            </div>
+          </div>
+
+          <div class="room-fixture-card powered" id="fix-plug-a3">
+            <div class="fixture-indicator"></div>
+            <div class="fixture-info">
+              <h4>เต้ารับปลั๊กไฟ &amp; กล้องวงจรปิด A3</h4>
+              <p>วงจร: RCBO-01 • สภาพ: มีกระแสไฟ</p>
+            </div>
+          </div>
+
+          <div class="room-fixture-card powered" id="fix-plug-a4">
+            <div class="fixture-indicator"></div>
+            <div class="fixture-info">
+              <h4>เต้ารับปลั๊กไฟ &amp; กล้องวงจรปิด A4</h4>
+              <p>วงจร: RCBO-01 • สภาพ: มีกระแสไฟ</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: 4 Phases of Breaker Implementation -->
+    <div class="grid-2">
+      <!-- Col 1: Phase 1 & 2 -->
+      <div class="card">
+        <div class="card-title">
+          <span>📐</span> 1. สถาปัตยกรรมการปั้นโมเดลใน Blender (3D Hierarchy)
+        </div>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">
+          ห้ามรวม Mesh ของตู้เบรกเกอร์เป็นชิ้นเดียว (Do NOT Join Objects) เพราะโปรแกรมเมอร์ต้องเขียนโค้ดจับคันโยกของแต่ละช่องมาหมุนแยกกัน:
+        </p>
+
+        <pre><code>PANEL_A3_DISTRIBUTION_BOARD (Empty Group)
+├── Panel_Outer_Casing (กล่องฝาครอบตู้)
+├── Panel_Door_Hinge (ฝาเปิด-ปิดโปร่งแสง)
+├── Din_Rail_Bar (รางเหล็กยึดโมดูล)
+│
+├── BREAKER_SLOT_01_LIGHT (Group)
+│   ├── Body_Base (ตัวเครื่องพลาสติกเทา)
+│   ├── Label_Text ("LIGHT A3 10A")
+│   └── <strong>LEVER_PIVOT_01</strong> (Origin อยู่ที่แกนหมุน)
+│       └── Lever_Thumb_Mesh (ก้านโยกสวิตช์)
+│
+└── BREAKER_SLOT_02_AC (Group)
+    ├── Body_Base
+    └── <strong>LEVER_PIVOT_02</strong>
+        └── Lever_Thumb_Mesh</code></pre>
+
+        <div style="margin-top: 16px;">
+          <h4 style="font-size: 13.5px; color: var(--cyan); margin-bottom: 6px;">หัวใจสำคัญเรื่อง Pivot Point:</h4>
+          <ul style="font-size: 12.5px; color: var(--text-muted); padding-left: 20px; line-height: 1.6;">
+            <li>เลือกชิ้นส่วน <code>LEVER_PIVOT</code> ➔ กด <code>Tab</code> เข้า Edit Mode ➔ เลือก Edge ตรงแกนหมุน ➔ กด <code>Shift + S</code> ➔ Cursor to Selected</li>
+            <li>ออก Object Mode ➔ คลิกขวา ➔ <strong>Set Origin ➔ Origin to 3D Cursor</strong></li>
+            <li>ทดสอบกด <code>R</code> แล้วหมุนตามแกน X: คันโยกต้องดีดขึ้น-ลงเป็นมุม 45° สวยงามโดยไม่หลุดจากร่อง</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Col 2: Phase 3 & 4 -->
+      <div class="card">
+        <div class="card-title">
+          <span>💻</span> 2. การควบคุมคันโยกผ่านโค้ด 3D (Three.js Kinematics)
+        </div>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">
+          บนแพลตฟอร์ม Web 3D เมื่อมี Event เปลี่ยนสถานะ (เช่น ได้รับสัญญาณจาก Home Assistant หรือผู้ใช้คลิก):
+        </p>
+
+        <pre><code><span class="code-comment">// 1. ดึง Object คันโยกจากชื่อที่ตั้งไว้ใน Blender</span>
+<span class="code-keyword">const</span> leverA3Light = scene.<span class="code-prop">getObjectByName</span>(<span class="code-str">"LEVER_PIVOT_01"</span>);
+
+<span class="code-comment">// 2. กำหนดมุมองศาการหมุน (Radians)</span>
+<span class="code-keyword">const</span> ANGLE_ON  = <span class="code-num">0.785</span>;  <span class="code-comment">// +45 องศา (ดีดขึ้น = เปิดไฟ)</span>
+<span class="code-keyword">const</span> ANGLE_OFF = -<span class="code-num">0.785</span>; <span class="code-comment">// -45 องศา (ดีดลง = ตัดไฟ)</span>
+
+<span class="code-comment">// 3. สั่งหมุนคันโยกด้วย GSAP หรือ Tween.js ให้สมูท</span>
+<span class="code-keyword">function</span> <span class="code-prop">setBreakerState</span>(leverMesh, isPowered) {
+  gsap.<span class="code-prop">to</span>(leverMesh.<span class="code-prop">rotation</span>, {
+    x: isPowered ? ANGLE_ON : ANGLE_OFF,
+    duration: <span class="code-num">0.2</span>,
+    ease: <span class="code-str">"power2.out"</span>,
+    onComplete: () => {
+      <span class="code-comment">// ส่งผลกระทบตัดไฟหลอดไฟลูกข่าย</span>
+      <span class="code-prop">updateCircuitLoads</span>(<span class="code-str">"CIRCUIT_A3_LIGHT"</span>, isPowered);
+    }
+  });
+}</code></pre>
+
+        <div style="margin-top: 16px;">
+          <h4 style="font-size: 13.5px; color: var(--emerald); margin-bottom: 6px;">Two-Way Sync Logic:</h4>
+          <p style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5;">
+            ถ้าเบรกเกอร์ช่อง A3 ดับ ➔ หลอดไฟ <code>light.a3_main</code> บนโมเดล 3D ต้องดับทันที และระบบต้องล็อกไม่ให้ผู้ใช้กดปุ่มเปิดไฟในห้องนั้นได้จนกว่าจะสับเบรกเกอร์ขึ้น
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Circuit Mapping Table Spec -->
+    <div class="card" style="margin-bottom: 28px;">
+      <div class="card-title">
+        <span>📋</span> 3. โครงสร้างตาราง Circuit-to-IoT Mapping (โครงร่างเตรียมกรอกข้อมูลหน้างาน)
+      </div>
+      <p style="font-size: 13px; color: var(--text-muted);">
+        ตารางนี้จะใช้จับคู่ระหว่าง <strong>ตำแหน่งเบรกเกอร์ในตู้</strong> กับ <strong>โหลดไฟฟ้าจริงในห้อง A3-A4</strong> และ <strong>Entity ID ใน Home Assistant</strong>
+      </p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ตู้ / ช่อง (Slot)</th>
+              <th>ป้ายระบุหน้าตู้ (Panel Label)</th>
+              <th>พิกัดโหลดในห้อง (A3 / A4)</th>
+              <th>อุปกรณ์ไฟฟ้าที่ควบคุม (Connected Fixtures)</th>
+              <th>Home Assistant Entity ID ที่เกี่ยวข้อง</th>
+              <th>การสั่งการ (Control Capability)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tag-room">DB-A3 / 01</span></td>
+              <td>Main Incomer 63A</td>
+              <td>ทั้งห้อง A3</td>
+              <td>เมนควบคุมไฟทั้งหมดของห้อง A3</td>
+              <td><code>switch.a3_main_breaker</code> (ถ้ามีสมาร์ตมิเตอร์)</td>
+              <td>แสดงสถานะเสมือน (Digital Simulation)</td>
+            </tr>
+            <tr>
+              <td><span class="tag-room">DB-A3 / 02</span></td>
+              <td>Lighting A3 10A</td>
+              <td>เพดาน A3</td>
+              <td>หลอดไฟติดเพดาน A3 (กลางห้อง + ไฟสปอตไลต์)</td>
+              <td><code>light.a3_ceiling_main</code></td>
+              <td>จำลองสับคันโยก ➔ สั่ง HA Toggle Light</td>
+            </tr>
+            <tr>
+              <td><span class="tag-room">DB-A3 / 03</span></td>
+              <td>Air Conditioner 16A</td>
+              <td>ผนังฝั่งซ้าย A3</td>
+              <td>เครื่องปรับอากาศ A3</td>
+              <td><code>climate.a3_air_conditioner</code></td>
+              <td>สับลง ➔ ตัดไฟแอร์ในระบบ 3D ทันที</td>
+            </tr>
+            <tr>
+              <td><span class="tag-room">DB-A4 / 01</span></td>
+              <td>Main Incomer 63A</td>
+              <td>ทั้งห้อง A4</td>
+              <td>เมนควบคุมไฟทั้งหมดของห้อง A4</td>
+              <td><code>switch.a4_main_breaker</code></td>
+              <td>แสดงสถานะเสมือน</td>
+            </tr>
+            <tr>
+              <td><span class="tag-room">DB-A4 / 02</span></td>
+              <td>Lighting A4 10A</td>
+              <td>เพดาน A4</td>
+              <td>หลอดไฟติดเพดาน A4 + โคมไฟตั้งพื้นมุมโซฟา</td>
+              <td><code>light.a4_ceiling_main</code>, <code>switch.a4_floor_lamp</code></td>
+              <td>จำลองสับคันโยก ➔ สั่ง HA Toggle Light</td>
+            </tr>
+            <tr>
+              <td><span class="tag-room">DB-A4 / 03</span></td>
+              <td>Air Conditioner 16A</td>
+              <td>ผนังฝั่งซ้าย A4</td>
+              <td>เครื่องปรับอากาศ A4</td>
+              <td><code>climate.a4_air_conditioner</code></td>
+              <td>สับลง ➔ ตัดไฟแอร์ในระบบ 3D ทันที</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Checklist for Tomorrow's Fieldwork -->
+    <div class="card">
+      <div class="card-title">
+        <span>📸</span> 4. รายการ Checklist สิ่งที่ต้องถ่ายรูปและจดบันทึกหน้างาน (วันพรุ่งนี้)
+      </div>
+
+      <ul class="task-list">
+        <li class="task-item" onclick="toggleTask(this)">
+          <div class="task-check"></div>
+          <div class="task-text-group">
+            <div class="task-title">1. ถ่ายภาพหน้าตรงของตู้เบรกเกอร์ห้อง A3 และ A4 แบบระนาบตรง (Orthographic Angle)</div>
+            <div class="task-desc">ถ่ายแบบไม่เอียง เพื่อนำมาใช้เป็นภาพ Reference Image สำหรับกาง UV Texture และวัดสัดส่วนใน Blender</div>
+          </div>
+        </li>
+
+        <li class="task-item" onclick="toggleTask(this)">
+          <div class="task-check"></div>
+          <div class="task-text-group">
+            <div class="task-title">2. ถ่ายภาพซูมเจาะป้ายชื่อ (Labels) ของเบรกเกอร์ทุกช่อง</div>
+            <div class="task-desc">บันทึกตัวหนังสือให้ชัดเจนว่าช่องไหนเขียนว่าอะไร (เช่น แอร์, แสงสว่าง, เต้ารับ, ปั๊ม ฯลฯ)</div>
+          </div>
+        </li>
+
+        <li class="task-item" onclick="toggleTask(this)">
+          <div class="task-check"></div>
+          <div class="task-text-group">
+            <div class="task-title">3. สังเกตและบันทึกรูปลักษณ์ของคันโยกสวิตช์ (Lever Thumb)</div>
+            <div class="task-desc">ดูว่าคันโยกดีดขึ้นคือ ON หรือลงคือ ON, มีแถบสีบอกสถานะ (เขียว/แดง) ในช่องหน้าต่างจิ๋วหรือไม่</div>
+          </div>
+        </li>
+
+        <li class="task-item" onclick="toggleTask(this)">
+          <div class="task-check"></div>
+          <div class="task-text-group">
+            <div class="task-title">4. วัดขนาดภายนอกของตู้เบรกเกอร์ (กว้าง x สูง x ลึก) และความสูงจากพื้นห้อง</div>
+            <div class="task-desc">เพื่อนำมาวางในโมเดล 3D ให้ตำแหน่งและความสูงบนผนังตรงกับห้องจริง 100%</div>
+          </div>
+        </li>
+
+        <li class="task-item" onclick="toggleTask(this)">
+          <div class="task-check"></div>
+          <div class="task-text-group">
+            <div class="task-title">5. สอบถามช่างอาคารหรือผู้ดูแลระบบเรื่องวงจรไฟฟ้า (Circuit Schedule)</div>
+            <div class="task-desc">ยืนยันว่าเบรกเกอร์แต่ละช่องต่อพ่วงกับหลอดไฟดวงไหน ปลั๊กตัวไหน หรือแอร์ตัวไหนบ้าง</div>
+          </div>
+        </li>
+
+        <li class="task-item" onclick="toggleTask(this)">
+          <div class="task-check"></div>
+          <div class="task-text-group">
+            <div class="task-title">6. สอบถามทีม IoT/Home Assistant ว่าตู้ไฟมีโมดูลอ่านค่าหรือสั่งการจริงหรือไม่</div>
+            <div class="task-desc">ตรวจดูว่ามีอุปกรณ์อย่าง Sonoff DualR3, Tuya Din-Rail หรือ CT Clamp วัดกระแสติดตั้งอยู่ในตู้หรือไม่</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>Innovative Village Internship 2026-2027 • 3D Digital Twin &amp; Smart Office IoT Project</p>
+    </footer>
+  </div>
+
+  <script>
+    // Breaker Interactive State
+    const state = {
+      main: true,
+      'light-a3': true,
+      'light-a4': true,
+      'ac-a3': true,
+      'ac-a4': true,
+      plug: true
+    };
+
+    function toggleBreaker(slot) {
+      state[slot] = !state[slot];
+      const mcb = document.getElementById('mcb-' + slot);
+      const flag = document.getElementById('flag-' + slot);
+
+      if (state[slot]) {
+        mcb.classList.add('active');
+        flag.innerText = 'ON';
+      } else {
+        mcb.classList.remove('active');
+        flag.innerText = 'OFF';
+      }
+
+      updateCircuitLoads();
+    }
+
+    function updateCircuitLoads() {
+      const isMainOn = state.main;
+
+      // Light A3
+      const lightA3On = isMainOn && state['light-a3'];
+      const elLightA3 = document.getElementById('fix-light-a3');
+      if (lightA3On) {
+        elLightA3.classList.add('powered');
+        elLightA3.querySelector('p').innerText = 'วงจร: MCB-01 (Light A3) • สภาพ: จ่ายกระแสปกติ';
+      } else {
+        elLightA3.classList.remove('powered');
+        elLightA3.querySelector('p').innerText = 'วงจร: ตัดกระแสไฟ (Circuit Cut)';
+      }
+
+      // Light A4
+      const lightA4On = isMainOn && state['light-a4'];
+      const elLightA4 = document.getElementById('fix-light-a4');
+      if (lightA4On) {
+        elLightA4.classList.add('powered');
+        elLightA4.querySelector('p').innerText = 'วงจร: MCB-02 (Light A4) • สภาพ: จ่ายกระแสปกติ';
+      } else {
+        elLightA4.classList.remove('powered');
+        elLightA4.querySelector('p').innerText = 'วงจร: ตัดกระแสไฟ (Circuit Cut)';
+      }
+
+      // AC A3
+      const acA3On = isMainOn && state['ac-a3'];
+      const elAcA3 = document.getElementById('fix-ac-a3');
+      if (acA3On) {
+        elAcA3.classList.add('ac-powered');
+        elAcA3.querySelector('p').innerText = 'วงจร: MCB-03 (AC A3) • สภาพ: มอเตอร์ทำงาน';
+      } else {
+        elAcA3.classList.remove('ac-powered');
+        elAcA3.querySelector('p').innerText = 'วงจร: ตัดกระแสไฟ (Power Cut)';
+      }
+
+      // AC A4
+      const acA4On = isMainOn && state['ac-a4'];
+      const elAcA4 = document.getElementById('fix-ac-a4');
+      if (acA4On) {
+        elAcA4.classList.add('ac-powered');
+        elAcA4.querySelector('p').innerText = 'วงจร: MCB-04 (AC A4) • สภาพ: มอเตอร์ทำงาน';
+      } else {
+        elAcA4.classList.remove('ac-powered');
+        elAcA4.querySelector('p').innerText = 'วงจร: ตัดกระแสไฟ (Power Cut)';
+      }
+
+      // Plugs A3 & A4
+      const plugOn = isMainOn && state.plug;
+      const elPlugA3 = document.getElementById('fix-plug-a3');
+      const elPlugA4 = document.getElementById('fix-plug-a4');
+      if (plugOn) {
+        elPlugA3.classList.add('powered');
+        elPlugA4.classList.add('powered');
+        elPlugA3.querySelector('p').innerText = 'วงจร: RCBO-01 • สภาพ: มีกระแสไฟ';
+        elPlugA4.querySelector('p').innerText = 'วงจร: RCBO-01 • สภาพ: มีกระแสไฟ';
+      } else {
+        elPlugA3.classList.remove('powered');
+        elPlugA4.classList.remove('powered');
+        elPlugA3.querySelector('p').innerText = 'วงจร: ปิดเต้ารับ (No Power)';
+        elPlugA4.querySelector('p').innerText = 'วงจร: ปิดเต้ารับ (No Power)';
+      }
+    }
+
+    function toggleTask(el) {
+      el.classList.toggle('done');
+    }
+  </script>
+</body>
+</html>
