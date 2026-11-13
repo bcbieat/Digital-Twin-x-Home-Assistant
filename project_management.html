@@ -32,7 +32,7 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
       <h1>โครงการพัฒนาโมเดล 3D ห้อง A3 และ A4</h1>
       <p class="subtitle">ติดตามงานสำรวจ จัดทำข้อมูลอุปกรณ์ พัฒนาโมเดล 3D และเตรียมระบบแสดงผลบนเว็บไซต์</p>
     </div>
-    <div class="date">อัปเดตล่าสุด: 12 พฤศจิกายน 2569</div>
+    <div class="date">อัปเดตล่าสุด: 13 พฤศจิกายน 2569</div>
   </header>
 
   <div class="stats">
@@ -61,25 +61,25 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
       <article class="task"><div class="task-top"><h3>จัดทำและทบทวนผังเฟอร์นิเจอร์</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> วิเคราะห์ภาพถ่ายและ Top View เพื่อทำความเข้าใจตำแหน่งโต๊ะ เก้าอี้ ต้นไม้ ชั้นวาง กล่อง และกระจก โดยยกเลิก blockout ที่วางคลาดเคลื่อนแล้ว</div></article>
       <article class="task"><div class="task-top"><h3>ตรวจสอบ inventory, transform และ hierarchy ของอุปกรณ์ไฟฟ้า</h3><span class="tag next">กำลังดำเนินการ</span></div><div class="result"><b>เป้าหมาย:</b> ตรวจสอบชื่อ object, room, parent, ตำแหน่ง, rotation และขนาดใน A3, A4 และพื้นที่เชื่อม พร้อมรักษา TV, สวิตช์ A3, กล้อง A3 และตำแหน่งที่ผู้ใช้ปรับเอง</div></article>
       <article class="task"><div class="task-top"><h3>ปรับปรุง geometry และวัสดุอุปกรณ์ต้นแบบ</h3><span class="tag next">กำลังดำเนินการ</span></div><div class="result"><b>เป้าหมาย:</b> เริ่มจาก breaker 6 ช่อง, switch และ outlet; ปรับ bevel, รอยต่อ, จุดยึด, material, roughness และ texture พร้อมทำ close-up render ตรวจสอบ</div></article>
-      <article class="task"><div class="task-top"><h3>ปรับปรุงระบบแสดงผลโมเดลบนหน้าเว็บ</h3><span class="tag next">งานถัดไป</span></div><div class="result"><b>เป้าหมาย:</b> ปรับปรุงการแสดงผลโมเดล 3D และเตรียมระบบโต้ตอบสำหรับการใช้งานบนเว็บไซต์ หลังวางมาตรฐานรายละเอียดอุปกรณ์ต้นแบบ</div></article>
+      <article class="task"><div class="task-top"><h3>ปรับปรุงระบบแสดงผลโมเดลบนหน้าเว็บ</h3><span class="tag planned">งานถัดไป</span></div><div class="result"><b>เป้าหมาย:</b> เตรียมการแสดงผล GLB แยก A3/A4, stable object IDs และ mapping สถานะ Home Assistant แบบ read-only หลังยืนยัน coordinate contract และ QA โมเดล</div></article>
     </div>
   </section>
 
   <section>
-    <div class="section-head"><h2>สรุปงานประจำวัน</h2><span class="legend">12 พฤศจิกายน 2569</span></div>
+    <div class="section-head"><h2>สรุปงานประจำวัน</h2><span class="legend">13 พฤศจิกายน 2569</span></div>
     <article class="daily">
       <h3>แผนดำเนินงานวันนี้</h3>
       <ul>
-        <li>จัดทำ inventory อุปกรณ์ไฟฟ้าของห้อง A3, A4 และพื้นที่เชื่อมต่อ</li>
-        <li>ตรวจสอบชื่อ object, room, parent, ตำแหน่ง, rotation และขนาดของอุปกรณ์แต่ละชิ้น</li>
-        <li>ล็อก transform และ hierarchy ก่อนปรับโมเดล เพื่อไม่เขียนทับตำแหน่งที่ผู้ใช้จัดวางด้วยตนเอง</li>
-        <li>รักษาตำแหน่ง TV, สวิตช์ A3, กล้อง A3 และอุปกรณ์ manual placement อื่น ๆ</li>
-        <li>เริ่มปรับปรุง geometry ของตู้เบรกเกอร์ 6 ช่อง สวิตช์ และเต้ารับ โดยเพิ่ม bevel รอยต่อ ปุ่ม และจุดยึดที่จำเป็น</li>
-        <li>กำหนดแนวทาง material, roughness และ texture สำหรับพลาสติก โลหะ ยาง และกระจก</li>
-        <li>สร้างภาพ render close-up เพื่อตรวจสอบ scale, เงาสัมผัส วัสดุ และความสมจริงของอุปกรณ์ต้นแบบ</li>
-        <li>บันทึกปัญหาและรายการข้อมูลที่ต้องกลับไปยืนยันจากหน้างาน</li>
+        <li>ตรวจสอบว่า geometry ไม่มี orphan หรือหลุดจาก parent, อยู่ต่ำกว่าพื้น หรือซ้อนทับอุปกรณ์อื่นโดยไม่ตั้งใจ โดยพิจารณา world-space bounds และช่วงแกน Z ร่วมกับ XY</li>
+        <li>บันทึก QA report ก่อน–หลัง: parent/hierarchy, floor clearance, malformed metadata, duplicate role และ collision ที่พบ พร้อมแยกรายการที่ตั้งใจให้สัมผัสหรือฝังกับผนัง</li>
+        <li>บันทึกข้อมูลที่ยังต้องยืนยันจากหน้างาน ได้แก่ ขนาดจริง รุ่นอุปกรณ์ ความสูงติดตั้ง แนวเดินสาย และระดับความเชื่อมั่นของตำแหน่ง</li>
+        <li>ยืนยัน stable object ID, room ID, parent และ selectable node ของ breaker, switch และ outlet เพื่อรองรับ mapping กับ Home Assistant</li>
+        <li>สร้าง render close-up ของตู้เบรกเกอร์ 6 ช่อง สวิตช์ และเต้ารับ เพื่อตรวจ scale, เงาสัมผัส, material, clearance และการบังอุปกรณ์</li>
+        <li>เพิ่มรายละเอียดแบบไม่ทำลายโครงสร้างเดิม เช่น bevel รอยต่อ ปุ่มกด หน้ากาก ขั้วต่อ และสายหรือจุดยึดที่เหมาะสม โดยใช้ child/parent-relative และไม่เปลี่ยน manual transform</li>
+        <li>ตรวจ coordinate/placement contract และเตรียม export validation ของ GLB แยก A3/A4 เฉพาะเมื่อ QA ผ่าน โดยตรวจ origin, axis, scale, floor clearance, object names และ texture</li>
+        <li>เก็บ baseline สำหรับหน้าเว็บ ได้แก่ขนาด GLB, polygon/draw-call โดยประมาณ, load time/FPS และ mapping schema ที่ mark entity ซึ่งยังไม่ยืนยันเป็น <code>placeholder-unverified</code></li>
       </ul>
-      <div class="next-box"><b>ขอบเขตวันนี้:</b> ยังไม่จัดวางโต๊ะและเก้าอี้ และจะไม่ rebuild แบบล้าง scene ทั้งหมด จนกว่าจะยืนยันผังและพิกัดเฟอร์นิเจอร์ให้ตรงกัน การแก้ไขจะเน้นอุปกรณ์ไฟฟ้าและความสมจริงของโมเดลเป็นลำดับแรก</div>
+      <div class="next-box"><b>Definition of Done:</b> มี QA summary และ close-up ครบ 3 กลุ่มอุปกรณ์, ไม่มี detail ใหม่ที่ orphan/ต่ำกว่าพื้น/ชนโดยไม่ตั้งใจ, protected manual objects และ transforms ไม่เปลี่ยน, มี field blockers ที่ระบุรายการชัดเจน และ export/performance/mapping พร้อมสำหรับขั้นถัดไปเมื่อ gates ผ่าน</div>
     </article>
   </section>
 
