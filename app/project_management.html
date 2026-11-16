@@ -23,7 +23,8 @@ main{width:min(1080px,100%);margin:auto;display:grid;gap:24px}.hero{display:flex
 .kicker{font-size:.76rem;font-weight:750;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}h1{font-size:clamp(1.7rem,4vw,2.55rem);line-height:1.1;margin:.4rem 0 .6rem;text-wrap:balance}.subtitle{margin:0;color:var(--muted);max-width:62ch}.date{color:var(--muted);font-size:.9rem;white-space:nowrap}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}.stat strong{display:block;font-size:1.65rem}.stat span{color:var(--muted);font-size:.84rem}
 section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px}h2{font-size:1.1rem;margin:0}.legend{font-size:.8rem;color:var(--muted)}.tasks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.task{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:17px;display:grid;gap:11px}.task-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.task h3{font-size:1rem;margin:0;line-height:1.45}.tag{flex:none;border-radius:999px;padding:5px 9px;font-size:.72rem;font-weight:750}.done{background:var(--green-soft);color:var(--green)}.next{background:var(--amber-soft);color:var(--amber)}.planned{background:var(--blue-soft);color:var(--blue)}.result{font-size:.86rem;color:var(--muted);line-height:1.6}.result b{color:var(--ink)}
 .daily{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;display:grid;gap:14px}.daily h3{margin:0;font-size:1rem}.daily ul{margin:0;padding-left:1.35rem;display:grid;gap:7px;color:var(--muted);line-height:1.55}.daily li::marker{color:var(--green)}.next-box{border-left:4px solid var(--amber);background:var(--amber-soft);padding:13px 15px;border-radius:0 10px 10px 0;color:var(--ink);font-size:.9rem;line-height:1.6}.footer{font-size:.77rem;color:var(--muted);text-align:center}
-@media(max-width:700px){body{padding-block:18px 36px}.hero{padding:21px}.stats{grid-template-columns:1fr}.tasks{grid-template-columns:1fr}}
+@media(max-width:700px){body{padding-block:18px 36px}.hero{padding:21px}.stats{grid-template-columns:1fr}.tasks{grid-template-columns:1fr}.week-grid{grid-template-columns:1fr}.week-meta{grid-template-columns:1fr}}
+.week3{display:grid;gap:14px}.week-banner{background:linear-gradient(135deg,var(--green-soft),var(--surface));border:1px solid var(--line);border-radius:16px;padding:20px 22px;display:grid;gap:7px}.week-banner h2{font-size:1.3rem}.week-banner p{margin:0;color:var(--muted);line-height:1.6}.week-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.week-meta-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:13px}.week-meta-card small{display:block;color:var(--muted);font-size:.76rem}.week-meta-card strong{display:block;margin-top:4px;font-size:1rem}.week-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.week-day{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:8px}.week-day-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.week-day h3{font-size:.98rem;margin:0;line-height:1.4}.week-day time{font-size:.75rem;color:var(--green);font-weight:750;white-space:nowrap}.week-day p{margin:0;color:var(--muted);font-size:.84rem;line-height:1.55}.week-check{display:flex;align-items:flex-start;gap:8px;color:var(--muted);font-size:.8rem;line-height:1.45}.week-check::before{content:'○';color:var(--amber);font-weight:700}.week-gate{border-left:4px solid var(--green);background:var(--green-soft);padding:13px 15px;border-radius:0 10px 10px 0;color:var(--ink);font-size:.88rem;line-height:1.6}.week-gate b{color:var(--green)}
 </style>
 <main>
   <header class="hero">
@@ -32,14 +33,37 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
       <h1>โครงการพัฒนาโมเดล 3D ห้อง A3 และ A4</h1>
       <p class="subtitle">ติดตามงานสำรวจ จัดทำข้อมูลอุปกรณ์ พัฒนาโมเดล 3D และเตรียมระบบแสดงผลบนเว็บไซต์</p>
     </div>
-    <div class="date">อัปเดตล่าสุด: 13 พฤศจิกายน 2569</div>
+    <div class="date">อัปเดตล่าสุด: 16 พฤศจิกายน 2569</div>
   </header>
 
   <div class="stats">
-    <div class="stat"><strong>7</strong><span>งานที่เสร็จแล้ว</span></div>
-    <div class="stat"><strong>3</strong><span>งานถัดไป</span></div>
-    <div class="stat"><strong>1</strong><span>หมวดงานหลัก: 3D</span></div>
+    <div class="stat"><strong>13</strong><span>งานที่เสร็จแล้ว</span></div>
+    <div class="stat"><strong>6</strong><span>เป้าหมายสัปดาห์ที่ 3</span></div>
+    <div class="stat"><strong>3</strong><span>เกตที่ยังรอยืนยัน</span></div>
   </div>
+
+  <section class="week3">
+    <div class="week-banner">
+      <div class="kicker">Week 3 · 16–20 พฤศจิกายน 2569</div>
+      <h2>ทำให้ Web Demo พร้อมตรวจรับ</h2>
+      <p>สัปดาห์นี้โฟกัสการทำให้หน้า Digital Twin โหลดเสถียร ควบคุม simulation แล้วภาพ 3D เปลี่ยนทันที และเตรียม flow สำหรับให้หัวหน้าทดลอง โดยยังไม่เปิด Home Assistant หรือ breaker control จริง</p>
+    </div>
+    <div class="week-meta">
+      <div class="week-meta-card"><small>เป้าหมายหลัก</small><strong>Web Demo Stabilization</strong></div>
+      <div class="week-meta-card"><small>ขอบเขต</small><strong>Browser-only simulation</strong></div>
+      <div class="week-meta-card"><small>สิ่งที่ต้องส่งท้ายสัปดาห์</small><strong>Checklist + Feedback log</strong></div>
+    </div>
+    <div class="section-head"><h2>แผนรายวัน</h2><span class="legend">ตรวจ → แก้ → วัดผล → รับ feedback</span></div>
+    <div class="week-grid">
+      <article class="week-day"><div class="week-day-top"><h3>Smoke test และ freeze scope</h3><time>16 พ.ย.</time></div><p>เปิดหน้า production รุ่นเดิม ตรวจ GLB, console, network และรวบรวม defect ก่อนเพิ่มงานใหม่</p><div class="week-check">ตรวจ A3 / transition / A4 โหลดสำเร็จ</div><div class="week-check">บันทึกปัญหา breaker, transition light และต้นไม้</div></article>
+      <article class="week-day"><div class="week-day-top"><h3>แก้ visual และ state defects</h3><time>17 พ.ย.</time></div><p>แก้การตอบสนองของไฟและอุปกรณ์ให้ตรงกับสถานะจำลอง พร้อมตรวจว่าตำแหน่ง manual ไม่ถูกย้าย</p><div class="week-check">ปิดไฟแล้ว emissive และ PointLight ดับ</div><div class="week-check">Breaker A3 อยู่ในกรอบผนัง</div></article>
+      <article class="week-day"><div class="week-day-top"><h3>วัด performance บนอุปกรณ์เป้าหมาย</h3><time>18 พ.ย.</time></div><p>เทียบ GLB size, draw calls, readiness และ FPS กับ baseline โดยทดสอบ desktop และ mobile อย่างน้อยอย่างละหนึ่งเครื่อง</p><div class="week-check">บันทึก browser, GPU, network และผล cold/cache</div><div class="week-check">ยังไม่ optimize geometry ก่อนยืนยัน picking budget</div></article>
+      <article class="week-day"><div class="week-day-top"><h3>เตรียม presentation flow</h3><time>19 พ.ย.</time></div><p>จัดลำดับการสาธิต overview → breaker trip → AC → ไฟและอุปกรณ์ → reset พร้อมข้อความ fallback/offline</p><div class="week-check">ทำขั้นตอนสาธิตแบบสั้นสำหรับหัวหน้า</div><div class="week-check">ยืนยันปุ่ม Reset เริ่มรอบใหม่ได้</div></article>
+      <article class="week-day"><div class="week-day-top"><h3>Demo acceptance และเก็บ feedback</h3><time>20 พ.ย.</time></div><p>ให้หัวหน้าทดลองตาม checklist เก็บสิ่งที่เข้าใจยากและจัดลำดับงานสัปดาห์ที่ 4</p><div class="week-check">แยก bug, usability feedback และ feature request</div><div class="week-check">บันทึก known limitations ของ simulation</div></article>
+      <article class="week-day"><div class="week-day-top"><h3>Approval gates ที่ต้องติดตาม</h3><time>ตลอดสัปดาห์</time></div><p>ติดตามคำยืนยันจาก platform owner, source owner และ Home Assistant admin โดยไม่ใส่ credentials หรือเปิด live control</p><div class="week-check">coordinate / identity / picking contract</div><div class="week-check">entity inventory และ backend security boundary</div></article>
+    </div>
+    <div class="week-gate"><b>Definition of Done:</b> หน้า demo เปิดจาก hosting ได้, GLB ทั้งสามห้องโหลดหรือมี fallback ที่ชัดเจน, ทุก simulation control เปลี่ยนภาพ 3D ทันที, ไม่มี panel overlap, มี test checklist และ feedback log โดยยังระบุชัดว่าไม่เชื่อมต่ออุปกรณ์จริง</div>
+  </section>
 
   <section>
     <div class="section-head"><h2>วิธีการทำงาน 3D</h2><span class="legend">Measure → Record → Model → Verify</span></div>
@@ -59,27 +83,42 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
       <article class="task"><div class="task-top"><h3>สร้างไฟล์โมเดลและภาพสำหรับตรวจสอบ</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> สร้างไฟล์โมเดล <code>.blend</code>, <code>.glb</code> และภาพเรนเดอร์สำหรับตรวจสอบความถูกต้องของโมเดล</div></article>
       <article class="task"><div class="task-top"><h3>ปรับปรุงโมเดลกล้อง A3</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> เพิ่มตัวกล้อง เลนส์ ฐานยึด ข้อต่อ และสายไฟ โดยรักษาตำแหน่งที่กำหนดไว้ในห้อง A3</div></article>
       <article class="task"><div class="task-top"><h3>จัดทำและทบทวนผังเฟอร์นิเจอร์</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> วิเคราะห์ภาพถ่ายและ Top View เพื่อทำความเข้าใจตำแหน่งโต๊ะ เก้าอี้ ต้นไม้ ชั้นวาง กล่อง และกระจก โดยยกเลิก blockout ที่วางคลาดเคลื่อนแล้ว</div></article>
-      <article class="task"><div class="task-top"><h3>ตรวจสอบ inventory, transform และ hierarchy ของอุปกรณ์ไฟฟ้า</h3><span class="tag next">กำลังดำเนินการ</span></div><div class="result"><b>เป้าหมาย:</b> ตรวจสอบชื่อ object, room, parent, ตำแหน่ง, rotation และขนาดใน A3, A4 และพื้นที่เชื่อม พร้อมรักษา TV, สวิตช์ A3, กล้อง A3 และตำแหน่งที่ผู้ใช้ปรับเอง</div></article>
-      <article class="task"><div class="task-top"><h3>ปรับปรุง geometry และวัสดุอุปกรณ์ต้นแบบ</h3><span class="tag next">กำลังดำเนินการ</span></div><div class="result"><b>เป้าหมาย:</b> เริ่มจาก breaker 6 ช่อง, switch และ outlet; ปรับ bevel, รอยต่อ, จุดยึด, material, roughness และ texture พร้อมทำ close-up render ตรวจสอบ</div></article>
-      <article class="task"><div class="task-top"><h3>ปรับปรุงระบบแสดงผลโมเดลบนหน้าเว็บ</h3><span class="tag planned">งานถัดไป</span></div><div class="result"><b>เป้าหมาย:</b> เตรียมการแสดงผล GLB แยก A3/A4, stable object IDs และ mapping สถานะ Home Assistant แบบ read-only หลังยืนยัน coordinate contract และ QA โมเดล</div></article>
+      <article class="task"><div class="task-top"><h3>ตรวจสอบ inventory, transform และ hierarchy ของอุปกรณ์ไฟฟ้า</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> จัดทำรายงาน QA แบบ read-only ที่ <code>docs/MODEL_QA_REPORT_2026-11-13.md</code>; ยืนยัน canonical device parent 17 รายการ, protected transforms ไม่ถูกแก้ และคง quarantine เดิมไว้อย่าง reversible</div></article>
+      <article class="task"><div class="task-top"><h3>กำหนด identity และ coordinate contract ของ asset</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> แก้ draft mapping ให้ transition light ใช้ <code>DEV_A3_A4_TRANSITION_LIGHT_CEILING_01</code> และ <code>roomId: A3_A4_TRANSITION</code>; บันทึก contract ที่ <code>docs/ASSET_IDENTITY_COORDINATE_CONTRACT.md</code> โดยแยก builder-local datum ออกจาก platform anchor ที่ยังรอยืนยัน</div></article>
+      <article class="task"><div class="task-top"><h3>เตรียม handoff ขอคำยืนยันจาก source owner และ platform</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> จัดทำ <code>docs/PLATFORM_SOURCE_HANDOFF_2026-11-13.md</code> รวม source hash evidence, 20 คำถาม platform และคำถามผู้ดูแล Home Assistant; ทุกคำตอบยัง pending โดยไม่ restore/save/export หรือใส่ credentials</div></article>
+      <article class="task"><div class="task-top"><h3>ปรับปรุง geometry และวัสดุอุปกรณ์ต้นแบบ</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> เพิ่มรายละเอียด breaker 6 ช่อง, switch และ outlet แบบ child/parent-relative; ตรวจ close-up A3/A4; รักษา protected transforms และบันทึก source <code>.blend</code> แล้ว</div></article>
+      <article class="task"><div class="task-top"><h3>ตรวจสอบและ export GLB หลังแก้โมเดล</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> export ทับ GLB A3, transition และ A4 จาก room roots แบบ scoped; ตรวจ node names ไม่ซ้ำ, ไม่พบ quarantine/legacy nodes และ HTTP load ผ่านทั้ง 3 ไฟล์</div></article>
+      <article class="task"><div class="task-top"><h3>สรุปสถานะงาน 3D และเตรียม handoff</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ทำแล้ว:</b> QA inventory/hierarchy, stable node names, close-up breaker/switch/outlet, non-destructive detail pass, save source <code>.blend</code> และ scoped export GLB A3/transition/A4; <b>ยังไม่ได้ทำ:</b> platform placement acceptance, target-device performance และ Home Assistant entity/backend integration</div></article>
+      <article class="task"><div class="task-top"><h3>ปรับปรุงระบบแสดงผลโมเดลบนหน้าเว็บ</h3><span class="tag planned">งานถัดไป</span></div><div class="result"><b>เป้าหมาย:</b> เตรียมการแสดงผล GLB แยก A3/A4, stable object IDs และ mapping สถานะ Home Assistant แบบ read-only หลัง platform ยืนยัน coordinate/picking contract และ entity inventory</div></article>
     </div>
   </section>
 
   <section>
-    <div class="section-head"><h2>สรุปงานประจำวัน</h2><span class="legend">13 พฤศจิกายน 2569</span></div>
+    <div class="section-head"><h2>สรุปงานประจำวัน</h2><span class="legend">16 พฤศจิกายน 2569</span></div>
     <article class="daily">
-      <h3>แผนดำเนินงานวันนี้</h3>
+      <h3>สรุปงานวันนี้ · เริ่มสัปดาห์ที่ 3</h3>
+      <h4>ทำแล้ว</h4>
       <ul>
-        <li>ตรวจสอบว่า geometry ไม่มี orphan หรือหลุดจาก parent, อยู่ต่ำกว่าพื้น หรือซ้อนทับอุปกรณ์อื่นโดยไม่ตั้งใจ โดยพิจารณา world-space bounds และช่วงแกน Z ร่วมกับ XY</li>
-        <li>บันทึก QA report ก่อน–หลัง: parent/hierarchy, floor clearance, malformed metadata, duplicate role และ collision ที่พบ พร้อมแยกรายการที่ตั้งใจให้สัมผัสหรือฝังกับผนัง</li>
-        <li>บันทึกข้อมูลที่ยังต้องยืนยันจากหน้างาน ได้แก่ ขนาดจริง รุ่นอุปกรณ์ ความสูงติดตั้ง แนวเดินสาย และระดับความเชื่อมั่นของตำแหน่ง</li>
-        <li>ยืนยัน stable object ID, room ID, parent และ selectable node ของ breaker, switch และ outlet เพื่อรองรับ mapping กับ Home Assistant</li>
-        <li>สร้าง render close-up ของตู้เบรกเกอร์ 6 ช่อง สวิตช์ และเต้ารับ เพื่อตรวจ scale, เงาสัมผัส, material, clearance และการบังอุปกรณ์</li>
-        <li>เพิ่มรายละเอียดแบบไม่ทำลายโครงสร้างเดิม เช่น bevel รอยต่อ ปุ่มกด หน้ากาก ขั้วต่อ และสายหรือจุดยึดที่เหมาะสม โดยใช้ child/parent-relative และไม่เปลี่ยน manual transform</li>
-        <li>ตรวจ coordinate/placement contract และเตรียม export validation ของ GLB แยก A3/A4 เฉพาะเมื่อ QA ผ่าน โดยตรวจ origin, axis, scale, floor clearance, object names และ texture</li>
-        <li>เก็บ baseline สำหรับหน้าเว็บ ได้แก่ขนาด GLB, polygon/draw-call โดยประมาณ, load time/FPS และ mapping schema ที่ mark entity ซึ่งยังไม่ยืนยันเป็น <code>placeholder-unverified</code></li>
+        <li>ตรวจ inventory, parent/hierarchy และ floor clearance ของ active devices พร้อมบันทึก QA report</li>
+        <li>ตรวจ stable IDs, node names และ selectable hierarchy; แก้ draft transition-light mapping ให้ตรงกับ active node</li>
+        <li>เพิ่มรายละเอียด breaker, switch และ outlet แบบ child/parent-relative โดยไม่เปลี่ยน protected transforms</li>
+        <li>ตรวจ close-up breaker, switch และ outlet ของ A3/A4</li>
+        <li>บันทึก source <code>.blend</code> ล่าสุด และยืนยันตำแหน่ง manual ของสวิตช์ A4 ที่ผู้ใช้ปรับเอง</li>
+        <li>export GLB แยก A3/transition/A4; ตรวจ HTTP load, unique node names และยืนยันว่า quarantine/legacy nodes ไม่ถูก export</li>
+        <li>บันทึก performance baseline และคง Home Assistant mapping เป็น <code>placeholder-unverified</code></li>
       </ul>
-      <div class="next-box"><b>Definition of Done:</b> มี QA summary และ close-up ครบ 3 กลุ่มอุปกรณ์, ไม่มี detail ใหม่ที่ orphan/ต่ำกว่าพื้น/ชนโดยไม่ตั้งใจ, protected manual objects และ transforms ไม่เปลี่ยน, มี field blockers ที่ระบุรายการชัดเจน และ export/performance/mapping พร้อมสำหรับขั้นถัดไปเมื่อ gates ผ่าน</div>
+      <h4>เป้าหมายวันนี้ / รอยืนยัน</h4>
+      <ul>
+        <li>เริ่ม smoke test หน้า Web Demo บน hosting: ตรวจการโหลด GLB A3, transition และ A4, console/network errors และ fallback behavior</li>
+        <li>ตรวจการตอบสนอง simulation ของ Main/branch breaker, แอร์, ไฟ, TV, plug และ CCTV ให้ภาพ 3D อัปเดตทันที</li>
+        <li>บันทึก defect ที่พบจาก close-up โดยเน้น breaker A3, transition light, ต้นไม้ และ panel overlap ก่อนปรับเพิ่ม</li>
+        <li>ยืนยัน coordinate/placement contract กับ platform: origin, axis, units, heading, picking และ acceptance environment</li>
+        <li>ตรวจ AABB overlap screening ใน active v2 scene แล้ว: expected wall contacts แยกไว้; camera assembly มี review candidates 7 คู่ที่ยังต้อง visual/mesh-level review; ยังไม่แก้อัตโนมัติ</li>
+        <li>ทดสอบ performance บน target device และ production network; development baseline มีแล้ว แต่ยังไม่มี acceptance criteria/ผลทดสอบจาก target environment</li>
+        <li>รับรอง Home Assistant entity inventory, backend/security boundary และ circuit mapping</li>
+        <li>เปิดใช้ live integration หรือ breaker control; breaker ยังคง visual-only</li>
+      </ul>
+      <div class="next-box"><b>สถานะ Definition of Done สัปดาห์ที่ 3:</b> งาน 3D modeling และ scoped GLB export ผ่านแล้ว; สัปดาห์นี้ต้องทำให้ Web Demo ตรวจซ้ำได้ มี test checklist, target-device result และ feedback log. Platform/field acceptance และ Home Assistant integration ยังคงเป็น <span class="tag planned">pending gates</span> และ breaker จริงยังเป็น visual-only</div>
     </article>
   </section>
 
