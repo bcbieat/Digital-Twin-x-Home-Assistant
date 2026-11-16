@@ -1,0 +1,8 @@
+*.blend*
+blender/source/
+blender/archive/
+blender/previews/
+assets/
+.git/
+.claude/
+*.pdf
