@@ -37,7 +37,7 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
   </header>
 
   <div class="stats">
-    <div class="stat"><strong>13</strong><span>งานที่เสร็จแล้ว</span></div>
+    <div class="stat"><strong>20</strong><span>งานที่เสร็จแล้ว</span></div>
     <div class="stat"><strong>6</strong><span>เป้าหมายสัปดาห์ที่ 3</span></div>
     <div class="stat"><strong>3</strong><span>เกตที่ยังรอยืนยัน</span></div>
   </div>
@@ -89,42 +89,40 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
       <article class="task"><div class="task-top"><h3>ปรับปรุง geometry และวัสดุอุปกรณ์ต้นแบบ</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> เพิ่มรายละเอียด breaker 6 ช่อง, switch และ outlet แบบ child/parent-relative; ตรวจ close-up A3/A4; รักษา protected transforms และบันทึก source <code>.blend</code> แล้ว</div></article>
       <article class="task"><div class="task-top"><h3>ตรวจสอบและ export GLB หลังแก้โมเดล</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> export ทับ GLB A3, transition และ A4 จาก room roots แบบ scoped; ตรวจ node names ไม่ซ้ำ, ไม่พบ quarantine/legacy nodes และ HTTP load ผ่านทั้ง 3 ไฟล์</div></article>
       <article class="task"><div class="task-top"><h3>สรุปสถานะงาน 3D และเตรียม handoff</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ทำแล้ว:</b> QA inventory/hierarchy, stable node names, close-up breaker/switch/outlet, non-destructive detail pass, save source <code>.blend</code> และ scoped export GLB A3/transition/A4; <b>ยังไม่ได้ทำ:</b> platform placement acceptance, target-device performance และ Home Assistant entity/backend integration</div></article>
-      <article class="task"><div class="task-top"><h3>ปรับปรุงระบบแสดงผลโมเดลบนหน้าเว็บ</h3><span class="tag planned">งานถัดไป</span></div><div class="result"><b>เป้าหมาย:</b> เตรียมการแสดงผล GLB แยก A3/A4, stable object IDs และ mapping สถานะ Home Assistant แบบ read-only หลัง platform ยืนยัน coordinate/picking contract และ entity inventory</div></article>
+      <article class="task"><div class="task-top"><h3>ปรับปรุงระบบแสดงผลโมเดลบนหน้าเว็บ</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> Deploy V2 Demo บน Vercel พร้อม GLB A3/transition/A4, room-specific breaker/device controls, visual simulation ของ breaker, AC, ไฟ, TV, plug และ CCTV; smoke test production ผ่าน และยังคง breaker เป็น visual-only</div></article>
+      <article class="task"><div class="task-top"><h3>ตรวจสอบ Web Demo บน hosting และ simulation state</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> ตรวจ GLB loading, console/network, fallback, Main/branch breaker, AC, ไฟ, TV, plug และ CCTV; โหลดครบ <code>3/3 ROOMS READY</code> และบันทึกผลทดสอบในเอกสาร QA/performance</div></article>
+      <article class="task"><div class="task-top"><h3>จัดทำ defect log และตรวจ AABB overlap</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> บันทึก close-up findings ของ breaker A3, transition light, vegetation และ panel/camera overlap; grouped AABB screening ไม่พบ inter-device overlap เกิน 3 mm ครบทั้งสามแกน และไม่แก้อัตโนมัติ</div></article>
+      <article class="task"><div class="task-top"><h3>วัด performance บน target device และ production network</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> ทดสอบ Acer Nitro ANV15-51 และจำลอง mobile 4G/3G; บันทึก FPS, render calls, triangles, GLB size และ network observations ใน <code>docs/TARGET_DEVICE_PERFORMANCE_2026-11-16.md</code>; acceptance thresholds และ physical mobile test ยัง pending</div></article>
+      <article class="task"><div class="task-top"><h3>กำหนดแนวทาง Home Assistant Read-only Integration</h3><span class="tag planned">รอข้อมูลผู้ดูแล</span></div><div class="result"><b>สถานะ:</b> กำหนดเป้าหมายเป็น read-only state display โดยไม่เปิด write/live control; รอ entity inventory, backend endpoint, security review และ circuit mapping จากผู้ดูแลใน <code>docs/HOME_ASSISTANT_READ_ONLY_DECISION_2026-11-16.md</code></div></article>
     </div>
   </section>
 
   <section>
     <div class="section-head"><h2>สรุปงานประจำวัน</h2><span class="legend">16 พฤศจิกายน 2569</span></div>
     <article class="daily">
-      <h3>สรุปงานวันนี้ · เริ่มสัปดาห์ที่ 3</h3>
-      <h4>ทำแล้ว</h4>
+      <h3>สรุปงานวันนี้ · Web Demo Stabilization และเตรียม Home Assistant</h3>
+      <h4>Checklist งานที่ทำแล้ว</h4>
       <ul>
-        <li>ตรวจ inventory, parent/hierarchy และ floor clearance ของ active devices พร้อมบันทึก QA report</li>
-        <li>ตรวจ stable IDs, node names และ selectable hierarchy; แก้ draft transition-light mapping ให้ตรงกับ active node</li>
-        <li>เพิ่มรายละเอียด breaker, switch และ outlet แบบ child/parent-relative โดยไม่เปลี่ยน protected transforms</li>
-        <li>ตรวจ close-up breaker, switch และ outlet ของ A3/A4</li>
-        <li>บันทึก source <code>.blend</code> ล่าสุด และยืนยันตำแหน่ง manual ของสวิตช์ A4 ที่ผู้ใช้ปรับเอง</li>
-        <li>export GLB แยก A3/transition/A4; ตรวจ HTTP load, unique node names และยืนยันว่า quarantine/legacy nodes ไม่ถูก export</li>
-        <li>บันทึก performance baseline และคง Home Assistant mapping เป็น <code>placeholder-unverified</code></li>
-        <li>บันทึก defect close-up ใน <code>docs/DEFECT_LOG_2026-11-16.md</code>: breaker A3, transition light, vegetation และ panel/camera overlap แยก verified finding ออกจาก review candidate</li>
+        <li>✓ Deploy <code>room_3d_preview_v2</code> และ GLB A3/transition/A4 ขึ้น Vercel; แก้ root route และยืนยัน <code>3/3 ROOMS READY</code></li>
+        <li>✓ Smoke test production: ตรวจ HTTP/MIME, console, network, fallback และ browser rendering; ไม่พบ GLB failure</li>
+        <li>✓ แยก Control Desk และ Main/branch breaker ระหว่าง A3/A4 พร้อม mapping ปลั๊ก, AC, ไฟ, TV และ CCTV ตามห้อง</li>
+        <li>✓ ตรวจ simulation response ให้วัสดุ/สถานะ 3D อัปเดตทันทีเมื่อ toggle Main/branch breaker, AC, ไฟ, TV, plug และ CCTV</li>
+        <li>✓ แก้มุมกล้อง close-up breaker A3 ให้มองจากภายใน และคง source/manual transforms โดยไม่แก้อัตโนมัติ</li>
+        <li>✓ บันทึก defect close-up ที่ <code>docs/DEFECT_LOG_2026-11-16.md</code> และตรวจ active GLB AABB ที่ <code>docs/AABB_OVERLAP_SCREENING_2026-11-16.md</code></li>
+        <li>✓ ตรวจ coordinate/placement contract ฝั่ง repository/Web Demo และบันทึก pending platform gates ที่ <code>docs/PLATFORM_CONTRACT_STATUS_2026-11-16.md</code></li>
+        <li>✓ วัด performance บน target laptop และ production network พร้อม mobile 4G/3G emulation ที่ <code>docs/TARGET_DEVICE_PERFORMANCE_2026-11-16.md</code></li>
+        <li>✓ ตรวจ Home Assistant integration gate; ยืนยันว่า inventory/backend/circuit mapping ยังไม่พร้อม และคง breaker hardware เป็น visual-only</li>
+        <li>✓ กำหนดเป้าหมาย integration เป็น <b>Read-only Home Assistant</b> โดย credential ต้องอยู่หลัง backend และไม่อยู่ใน browser/Git</li>
       </ul>
-      <h4>เป้าหมายวันนี้ / รอยืนยัน</h4>
+      <h4>งานถัดไป / รอข้อมูล</h4>
       <ul>
-        <li>เริ่ม smoke test หน้า Web Demo บน hosting: ตรวจการโหลด GLB A3, transition และ A4, console/network errors และ fallback behavior</li>
-        <li>ตรวจการตอบสนอง simulation ของ Main/branch breaker, แอร์, ไฟ, TV, plug และ CCTV ให้ภาพ 3D อัปเดตทันที</li>
-        <li>บันทึก defect ที่พบจาก close-up โดยเน้น breaker A3, transition light, ต้นไม้ และ panel overlap ก่อนปรับเพิ่ม</li>
-        <li>ยืนยัน coordinate/placement contract กับ platform: origin, axis, units, heading, picking และ acceptance environment</li>
-        <li>ตรวจ AABB overlap screening ใน active v2 scene แล้ว: expected wall contacts แยกไว้; camera assembly มี review candidates 7 คู่ที่ยังต้อง visual/mesh-level review; ยังไม่แก้อัตโนมัติ</li>
-        <li>ตรวจ contract ฝั่ง repository และ Web Demo แล้วใน <code>docs/PLATFORM_CONTRACT_STATUS_2026-11-16.md</code>: ยืนยัน authoring datum, GLB loading และ browser picking ได้; platform origin/axis/heading/picking/acceptance อย่างเป็นทางการยังรอคำตอบเป็นลายลักษณ์อักษร</li>
-        <li>วัด performance บน Acer Nitro ANV15-51 ผ่าน production URL และจำลอง mobile 4G/3G; บันทึก raw observations และข้อจำกัดไว้ที่ <code>docs/TARGET_DEVICE_PERFORMANCE_2026-11-16.md</code> — physical mobile test และ acceptance thresholds ยัง pending</li>
-        <li>ตรวจ AABB overlap แบบ grouped semantic roots ของ active GLB ทั้ง 3 ไฟล์ใน <code>docs/AABB_OVERLAP_SCREENING_2026-11-16.md</code>: ไม่พบ positive inter-device pair ที่ overlap เกิน 3 mm ครบทั้งสามแกน; ไม่แก้อัตโนมัติ</li>
-        <li>ตรวจ Home Assistant entity inventory, backend/security boundary และ circuit mapping แล้วใน <code>docs/HOME_ASSISTANT_INTEGRATION_GATE_2026-11-16.md</code>: ยังไม่รับรอง เนื่องจาก inventory/ผู้อนุมัติ/backend/circuit schedule ยังไม่ถูกส่งหรือทบทวน; live I/O และ breaker hardware control ยังคงปิด</li>
-        <li>กำหนดโหมดเป้าหมายเป็น <b>Read-only Home Assistant</b> ใน <code>docs/HOME_ASSISTANT_READ_ONLY_DECISION_2026-11-16.md</code>; ยังไม่เปิดใช้งานจนกว่าจะได้รับ entity inventory, backend endpoint และ security approval โดย breaker ยังคง visual-only</li>
-        <li>ทดสอบ performance บน target device และ production network; development baseline มีแล้ว แต่ยังไม่มี acceptance criteria/ผลทดสอบจาก target environment</li>
-        <li>รับรอง Home Assistant entity inventory, backend/security boundary และ circuit mapping</li>
-        <li>เปิดใช้ live integration หรือ breaker control; breaker ยังคง visual-only</li>
+        <li>ขอ entity inventory ของ A3/A4 จาก Home Assistant administrator: <code>entity_id</code>, domain, state/attributes, unavailable behavior และผู้อนุมัติ</li>
+        <li>ขอ backend endpoint, response schema, authentication flow, CORS/rate-limit และ security boundary จาก platform/backend owner</li>
+        <li>ยืนยัน circuit mapping กับผู้รับผิดชอบไฟฟ้า; simulation grouping ปัจจุบันยังไม่ใช่หลักฐานวงจรจริง</li>
+        <li>รับคำตอบ platform origin/axis/heading/picking และ acceptance thresholds; ทดสอบ physical mobile device เพิ่ม</li>
+        <li>ลดงานปั้น 3D ลงชั่วคราว เหลือเฉพาะ defect ที่ขวาง Demo แล้วแบ่งเวลาไปศึกษา Home Assistant API, integration architecture และ Entity ID mapping</li>
       </ul>
-      <div class="next-box"><b>สถานะ Definition of Done สัปดาห์ที่ 3:</b> งาน 3D modeling และ scoped GLB export ผ่านแล้ว; สัปดาห์นี้ต้องทำให้ Web Demo ตรวจซ้ำได้ มี test checklist, target-device result และ feedback log. Platform/field acceptance และ Home Assistant integration ยังคงเป็น <span class="tag planned">pending gates</span> และ breaker จริงยังเป็น visual-only</div>
+      <div class="next-box"><b>สถานะ Definition of Done สัปดาห์ที่ 3:</b> Web Demo V2, production smoke test, simulation checklist, performance observation และ feedback/defect log พร้อมแล้ว. งานที่ยังเป็น <span class="tag planned">pending gates</span> คือ platform/field acceptance, physical mobile acceptance และข้อมูล Home Assistant จากผู้ดูแล; live integration ยังไม่เปิด และ breaker จริงยังเป็น visual-only</div>
     </article>
   </section>
 
