@@ -1,0 +1,18 @@
+{
+  "$schema": "./device-state.schema.json",
+  "schemaVersion": "0.1-mock",
+  "source": "mock",
+  "roomId": "A3",
+  "objectId": "DEV_A3_LIGHT_CEILING_01",
+  "state": "on",
+  "availability": "available",
+  "freshness": "fresh",
+  "unit": null,
+  "attributes": {
+    "displayState": "on",
+    "visualMode": "emission_on"
+  },
+  "updatedAt": "2026-11-17T15:00:00+07:00",
+  "lastChanged": "2026-11-17T14:52:00+07:00",
+  "message": null
+}

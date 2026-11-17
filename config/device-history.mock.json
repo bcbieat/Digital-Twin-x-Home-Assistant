@@ -1,0 +1,65 @@
+{
+  "$schema": "./device-history.schema.json",
+  "schemaVersion": "0.1-mock-history",
+  "source": "mock",
+  "generatedAt": "2026-11-17T16:00:00+07:00",
+  "series": [
+    {
+      "roomId": "A3",
+      "objectId": "DEV_A3_LIGHT_CEILING_01",
+      "entityId": "mock.a3_light_ceiling_01",
+      "valueType": "state",
+      "unit": null,
+      "samples": [
+        { "at": "2026-11-17T15:05:00+07:00", "value": "off", "availability": "available" },
+        { "at": "2026-11-17T15:42:00+07:00", "value": "on", "availability": "available" }
+      ]
+    },
+    {
+      "roomId": "A3",
+      "objectId": "DEV_A3_CAMERA_01",
+      "entityId": "mock.a3_camera_01",
+      "valueType": "availability",
+      "unit": null,
+      "samples": [
+        { "at": "2026-11-17T14:55:00+07:00", "value": "available", "availability": "available" },
+        { "at": "2026-11-17T15:10:00+07:00", "value": "unavailable", "availability": "unavailable" }
+      ]
+    },
+    {
+      "roomId": "A3_A4_TRANSITION",
+      "objectId": "DEV_A3_A4_TRANSITION_LIGHT_CEILING_01",
+      "entityId": "mock.transition_light_ceiling_01",
+      "valueType": "state",
+      "unit": null,
+      "samples": [
+        { "at": "2026-11-17T14:45:00+07:00", "value": "on", "availability": "available" },
+        { "at": "2026-11-17T15:12:00+07:00", "value": "off", "availability": "available" }
+      ]
+    },
+    {
+      "roomId": "A4",
+      "objectId": "DEV_A4_AC_WALL_01",
+      "entityId": "mock.a4_ac_temperature_01",
+      "valueType": "measurement",
+      "unit": "°C",
+      "samples": [
+        { "at": "2026-11-17T14:48:00+07:00", "value": 28.2, "availability": "available" },
+        { "at": "2026-11-17T15:20:00+07:00", "value": 27.8, "availability": "available" },
+        { "at": "2026-11-17T15:55:00+07:00", "value": 27.8, "availability": "available" }
+      ]
+    },
+    {
+      "roomId": "A4",
+      "objectId": "DEV_A4_AC_WALL_01",
+      "entityId": "mock.a4_ac_power_01",
+      "valueType": "measurement",
+      "unit": "W",
+      "samples": [
+        { "at": "2026-11-17T14:48:00+07:00", "value": 940, "availability": "available" },
+        { "at": "2026-11-17T15:20:00+07:00", "value": 812, "availability": "available" },
+        { "at": "2026-11-17T15:55:00+07:00", "value": 812, "availability": "stale" }
+      ]
+    }
+  ]
+}

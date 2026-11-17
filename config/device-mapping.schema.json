@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/digital-twin/device-mapping.schema.json",
+  "title": "Digital Twin Device Mapping",
+  "description": "Room-scoped mapping between canonical 3D objects and an approved Home Assistant entity. The mock profile uses synthetic entity IDs only.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "status", "integrationMode", "rooms"],
+  "properties": {
+    "schemaVersion": { "type": "string", "const": "0.2-mock" },
+    "status": { "type": "string", "enum": ["mock-only", "draft-unverified", "approved"] },
+    "integrationMode": { "type": "string", "enum": ["mock", "read-only", "live-control"] },
+    "rooms": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/room" }
+    }
+  },
+  "$defs": {
+    "room": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["roomId", "displayName", "assetFile", "devices"],
+      "properties": {
+        "roomId": {
+          "type": "string",
+          "enum": ["A3", "A3_A4_TRANSITION", "A4"]
+        },
+        "displayName": { "type": "string", "minLength": 1 },
+        "assetFile": { "type": "string", "minLength": 1 },
+        "devices": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/device" }
+        }
+      }
+    },
+    "device": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["objectId", "nodeName", "displayName", "deviceType", "entities", "capabilities", "access", "integration"],
+      "properties": {
+        "objectId": { "type": "string", "pattern": "^(DEV|ELEC)_[A-Z0-9_]+$" },
+        "nodeName": { "type": "string", "minLength": 1 },
+        "displayName": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["th", "en"],
+          "properties": {
+            "th": { "type": "string", "minLength": 1 },
+            "en": { "type": "string", "minLength": 1 }
+          }
+        },
+        "deviceType": {
+          "type": "string",
+          "enum": ["ac", "camera", "light", "outlet", "switch", "tv", "electrical_panel"]
+        },
+        "entities": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/entityMapping" }
+        },
+        "capabilities": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["state_read", "history_read", "activity_read", "visual_on", "visual_off", "select", "visual-only"] },
+          "uniqueItems": true
+        },
+        "access": { "$ref": "#/$defs/access" },
+        "integration": { "$ref": "#/$defs/integration" },
+        "circuit": { "type": ["string", "null"] }
+      }
+    },
+    "entityMapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entityId", "domain", "role", "readOnly"],
+      "properties": {
+        "entityId": { "type": "string", "pattern": "^mock\\.[a-z0-9_]+$" },
+        "domain": { "type": "string", "enum": ["binary_sensor", "camera", "climate", "light", "media_player", "sensor", "switch"] },
+        "role": { "type": "string", "enum": ["primary_state", "availability", "current", "power", "temperature", "presence", "live_visual", "playback_target"] },
+        "readOnly": { "type": "boolean", "const": true },
+        "unit": { "type": ["string", "null"] }
+      }
+    },
+    "access": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["visible", "webControl", "userControl", "automationControl", "adminConfig"],
+      "properties": {
+        "visible": { "type": "boolean" },
+        "webControl": { "type": "boolean", "const": false },
+        "userControl": { "type": "boolean", "const": false },
+        "automationControl": { "type": "boolean", "const": false },
+        "adminConfig": { "type": "boolean", "const": false }
+      }
+    },
+    "integration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "mappingStatus"],
+      "properties": {
+        "mode": { "type": "string", "enum": ["mock", "read-only", "visual-only"] },
+        "mappingStatus": { "type": "string", "enum": ["mock", "unverified", "approved"] }
+      }
+    }
+  }
+}

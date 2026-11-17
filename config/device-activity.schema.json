@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/digital-twin/device-activity.schema.json",
+  "title": "Digital Twin Mock Activity",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "source", "generatedAt", "events"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "type": "string", "const": "0.1-mock-activity" },
+    "source": { "type": "string", "const": "mock" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "events": { "type": "array", "items": { "$ref": "#/$defs/event" } }
+  },
+  "$defs": {
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["eventId", "roomId", "objectId", "entityId", "eventType", "fromState", "toState", "occurredAt", "sourceLabel", "cause"],
+      "properties": {
+        "eventId": { "type": "string", "pattern": "^mock-event-[a-z0-9-]+$" },
+        "roomId": { "type": "string", "enum": ["A3", "A3_A4_TRANSITION", "A4"] },
+        "objectId": { "type": "string", "pattern": "^(DEV|ELEC)_[A-Z0-9_]+$" },
+        "entityId": { "type": "string", "pattern": "^mock\\.[a-z0-9_]+$" },
+        "eventType": { "type": "string", "enum": ["state_changed", "availability_changed", "freshness_changed"] },
+        "fromState": { "type": ["string", "number", "boolean", "null"] },
+        "toState": { "type": ["string", "number", "boolean", "null"] },
+        "occurredAt": { "type": "string", "format": "date-time" },
+        "sourceLabel": { "type": "string", "const": "Mock fixture" },
+        "cause": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

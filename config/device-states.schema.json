@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/digital-twin/device-states.schema.json",
+  "title": "Digital Twin Mock State Fixtures",
+  "description": "Collection of normalized mock states for A3, the transition area, and A4.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "source", "generatedAt", "states"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "type": "string", "const": "0.1-mock-fixtures" },
+    "source": { "type": "string", "const": "mock" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "states": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/state" }
+    }
+  },
+  "$defs": {
+    "state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["roomId", "objectId", "entityId", "state", "availability", "freshness", "updatedAt"],
+      "properties": {
+        "roomId": { "type": "string", "enum": ["A3", "A3_A4_TRANSITION", "A4"] },
+        "objectId": { "type": "string", "pattern": "^(DEV|ELEC)_[A-Z0-9_]+$" },
+        "entityId": { "type": ["string", "null"], "pattern": "^mock\\.[a-z0-9_]+$" },
+        "state": { "type": ["string", "number", "boolean", "null"] },
+        "availability": { "type": "string", "enum": ["available", "unavailable", "unknown"] },
+        "freshness": { "type": "string", "enum": ["fresh", "stale"] },
+        "unit": { "type": ["string", "null"] },
+        "attributes": { "type": "object", "additionalProperties": true },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "lastChanged": { "type": ["string", "null"] },
+        "message": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "availability": { "enum": ["unavailable", "unknown"] } }, "required": ["availability"] },
+          "then": { "properties": { "state": { "type": "null" } } }
+        },
+        {
+          "if": { "properties": { "availability": { "const": "available" } }, "required": ["availability"] },
+          "then": { "properties": { "entityId": { "type": ["string", "null"] } } }
+        }
+      ]
+    }
+  }
+}

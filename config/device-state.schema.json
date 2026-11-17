@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Digital Twin Normalized Device State (Mock)",
+  "description": "UI-facing mock state projection. Home Assistant identifiers and live endpoints are intentionally excluded.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "source", "roomId", "objectId", "state", "availability", "updatedAt"],
+  "properties": {
+    "schemaVersion": { "type": "string", "const": "0.1-mock" },
+    "source": { "type": "string", "const": "mock" },
+    "roomId": { "type": "string", "enum": ["A3", "A3_A4_TRANSITION", "A4"] },
+    "objectId": { "type": "string", "pattern": "^(DEV|ELEC)_[A-Z0-9_]+$" },
+    "state": { "type": ["string", "number", "boolean", "null"] },
+    "availability": { "type": "string", "enum": ["available", "unavailable", "unknown"] },
+    "freshness": { "type": "string", "enum": ["fresh", "stale"] },
+    "unit": { "type": ["string", "null"] },
+    "attributes": { "type": "object", "additionalProperties": true },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "lastChanged": { "type": ["string", "null"], "format": "date-time" },
+    "message": { "type": ["string", "null"] }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "availability": { "const": "unavailable" } }, "required": ["availability"] },
+      "then": { "properties": { "state": { "type": "null" } } }
+    },
+    {
+      "if": { "properties": { "availability": { "const": "unknown" } }, "required": ["availability"] },
+      "then": { "properties": { "state": { "type": "null" } } }
+    }
+  ]
+}

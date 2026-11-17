@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/digital-twin/device-history.schema.json",
+  "title": "Digital Twin Mock History",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "source", "generatedAt", "series"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "type": "string", "const": "0.1-mock-history" },
+    "source": { "type": "string", "const": "mock" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "series": { "type": "array", "items": { "$ref": "#/$defs/series" } }
+  },
+  "$defs": {
+    "series": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["roomId", "objectId", "entityId", "valueType", "unit", "samples"],
+      "properties": {
+        "roomId": { "type": "string", "enum": ["A3", "A3_A4_TRANSITION", "A4"] },
+        "objectId": { "type": "string", "pattern": "^(DEV|ELEC)_[A-Z0-9_]+$" },
+        "entityId": { "type": "string", "pattern": "^mock\\.[a-z0-9_]+$" },
+        "valueType": { "type": "string", "enum": ["state", "availability", "measurement"] },
+        "unit": { "type": ["string", "null"] },
+        "samples": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/sample" } }
+      }
+    },
+    "sample": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["at", "value", "availability"],
+      "properties": {
+        "at": { "type": "string", "format": "date-time" },
+        "value": { "type": ["string", "number", "boolean", "null"] },
+        "availability": { "type": "string", "enum": ["available", "unavailable", "unknown", "stale"] }
+      }
+    }
+  }
+}

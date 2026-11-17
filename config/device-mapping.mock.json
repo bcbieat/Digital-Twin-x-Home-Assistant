@@ -1,0 +1,159 @@
+{
+  "$schema": "./device-mapping.schema.json",
+  "schemaVersion": "0.2-mock",
+  "status": "mock-only",
+  "integrationMode": "mock",
+  "rooms": [
+    {
+      "roomId": "A3",
+      "displayName": "ห้อง A3",
+      "assetFile": "blender/exports/A3_interior_measured.glb",
+      "devices": [
+        {
+          "objectId": "DEV_A3_LIGHT_CEILING_01",
+          "nodeName": "DEV_A3_LIGHT_CEILING_01",
+          "displayName": { "th": "ไฟเพดาน A3", "en": "A3 Ceiling Light" },
+          "deviceType": "light",
+          "entities": [
+            { "entityId": "mock.a3_light_ceiling_01", "domain": "light", "role": "primary_state", "readOnly": true, "unit": null }
+          ],
+          "capabilities": ["state_read", "history_read", "activity_read", "visual_on", "visual_off", "select"],
+          "access": { "visible": true, "webControl": false, "userControl": false, "automationControl": false, "adminConfig": false },
+          "integration": { "mode": "mock", "mappingStatus": "mock" },
+          "circuit": null
+        },
+        {
+          "objectId": "DEV_A3_AC_WALL_01",
+          "nodeName": "DEV_A3_AC_WALL_01",
+          "displayName": { "th": "แอร์ A3", "en": "A3 Air Conditioner" },
+          "deviceType": "ac",
+          "entities": [
+            { "entityId": "mock.a3_ac_01", "domain": "climate", "role": "primary_state", "readOnly": true, "unit": null },
+            { "entityId": "mock.a3_ac_temperature_01", "domain": "sensor", "role": "temperature", "readOnly": true, "unit": "°C" },
+            { "entityId": "mock.a3_ac_power_01", "domain": "sensor", "role": "power", "readOnly": true, "unit": "W" }
+          ],
+          "capabilities": ["state_read", "history_read", "activity_read", "select"],
+          "access": { "visible": true, "webControl": false, "userControl": false, "automationControl": false, "adminConfig": false },
+          "integration": { "mode": "mock", "mappingStatus": "mock" },
+          "circuit": null
+        },
+        {
+          "objectId": "DEV_A3_CAMERA_01",
+          "nodeName": "DEV_A3_CAMERA_01",
+          "displayName": { "th": "กล้อง A3", "en": "A3 Camera" },
+          "deviceType": "camera",
+          "entities": [
+            { "entityId": "mock.a3_camera_01", "domain": "camera", "role": "live_visual", "readOnly": true, "unit": null }
+          ],
+          "capabilities": ["state_read", "activity_read", "select"],
+          "access": { "visible": true, "webControl": false, "userControl": false, "automationControl": false, "adminConfig": false },
+          "integration": { "mode": "mock", "mappingStatus": "mock" },
+          "circuit": null
+        },
+        {
+          "objectId": "ELEC_A3_PANEL_01",
+          "nodeName": "ELEC_A3_PANEL_01",
+          "displayName": { "th": "ตู้เบรกเกอร์ A3", "en": "A3 Electrical Panel" },
+          "deviceType": "electrical_panel",
+          "entities": [],
+          "capabilities": ["select", "visual-only"],
+          "access": { "visible": true, "webControl": false, "userControl": false, "automationControl": false, "adminConfig": false },
+          "integration": { "mode": "visual-only", "mappingStatus": "mock" },
+          "circuit": null
+        }
+      ]
+    },
+    {
+      "roomId": "A3_A4_TRANSITION",
+      "displayName": "พื้นที่เชื่อมต่อ A3–A4",
+      "assetFile": "blender/exports/A3_A4_transition_interior_measured.glb",
+      "devices": [
+        {
+          "objectId": "DEV_A3_A4_TRANSITION_LIGHT_CEILING_01",
+          "nodeName": "DEV_A3_A4_TRANSITION_LIGHT_CEILING_01",
+          "displayName": { "th": "ไฟทางเชื่อม", "en": "Transition Ceiling Light" },
+          "deviceType": "light",
+          "entities": [
+            { "entityId": "mock.transition_light_ceiling_01", "domain": "light", "role": "primary_state", "readOnly": true, "unit": null }
+          ],
+          "capabilities": ["state_read", "history_read", "activity_read", "visual_on", "visual_off", "select"],
+          "access": { "visible": true, "webControl": false, "userControl": false, "automationControl": false, "adminConfig": false },
+          "integration": { "mode": "mock", "mappingStatus": "mock" },
+          "circuit": null
+        },
+        {
+          "objectId": "DEV_TRANSITION_TV_01",
+          "nodeName": "DEV_TRANSITION_TV_01",
+          "displayName": { "th": "ทีวีทางเชื่อม", "en": "Transition TV" },
+          "deviceType": "tv",
+          "entities": [
+            { "entityId": "mock.transition_tv_01", "domain": "media_player", "role": "primary_state", "readOnly": true, "unit": null }
+          ],
+          "capabilities": ["state_read", "activity_read", "select"],
+          "access": { "visible": true, "webControl": false, "userControl": false, "automationControl": false, "adminConfig": false },
+          "integration": { "mode": "mock", "mappingStatus": "mock" },
+          "circuit": null
+        }
+      ]
+    },
+    {
+      "roomId": "A4",
+      "displayName": "ห้อง A4",
+      "assetFile": "blender/exports/A4_interior_measured.glb",
+      "devices": [
+        {
+          "objectId": "DEV_A4_LIGHT_CEILING_01",
+          "nodeName": "DEV_A4_LIGHT_CEILING_01",
+          "displayName": { "th": "ไฟเพดาน A4", "en": "A4 Ceiling Light" },
+          "deviceType": "light",
+          "entities": [
+            { "entityId": "mock.a4_light_ceiling_01", "domain": "light", "role": "primary_state", "readOnly": true, "unit": null }
+          ],
+          "capabilities": ["state_read", "history_read", "activity_read", "visual_on", "visual_off", "select"],
+          "access": { "visible": true, "webControl": false, "userControl": false, "automationControl": false, "adminConfig": false },
+          "integration": { "mode": "mock", "mappingStatus": "mock" },
+          "circuit": null
+        },
+        {
+          "objectId": "DEV_A4_AC_WALL_01",
+          "nodeName": "DEV_A4_AC_WALL_01",
+          "displayName": { "th": "แอร์ A4", "en": "A4 Air Conditioner" },
+          "deviceType": "ac",
+          "entities": [
+            { "entityId": "mock.a4_ac_01", "domain": "climate", "role": "primary_state", "readOnly": true, "unit": null },
+            { "entityId": "mock.a4_ac_temperature_01", "domain": "sensor", "role": "temperature", "readOnly": true, "unit": "°C" },
+            { "entityId": "mock.a4_ac_power_01", "domain": "sensor", "role": "power", "readOnly": true, "unit": "W" }
+          ],
+          "capabilities": ["state_read", "history_read", "activity_read", "select"],
+          "access": { "visible": true, "webControl": false, "userControl": false, "automationControl": false, "adminConfig": false },
+          "integration": { "mode": "mock", "mappingStatus": "mock" },
+          "circuit": null
+        },
+        {
+          "objectId": "DEV_A4_CAMERA_01",
+          "nodeName": "DEV_A4_CAMERA_01",
+          "displayName": { "th": "กล้อง A4", "en": "A4 Camera" },
+          "deviceType": "camera",
+          "entities": [
+            { "entityId": "mock.a4_camera_01", "domain": "camera", "role": "live_visual", "readOnly": true, "unit": null }
+          ],
+          "capabilities": ["state_read", "activity_read", "select"],
+          "access": { "visible": true, "webControl": false, "userControl": false, "automationControl": false, "adminConfig": false },
+          "integration": { "mode": "mock", "mappingStatus": "mock" },
+          "circuit": null
+        },
+        {
+          "objectId": "ELEC_A4_PANEL_01",
+          "nodeName": "ELEC_A4_PANEL_01",
+          "displayName": { "th": "ตู้เบรกเกอร์ A4", "en": "A4 Electrical Panel" },
+          "deviceType": "electrical_panel",
+          "entities": [],
+          "capabilities": ["select", "visual-only"],
+          "access": { "visible": true, "webControl": false, "userControl": false, "automationControl": false, "adminConfig": false },
+          "integration": { "mode": "visual-only", "mappingStatus": "mock" },
+          "circuit": null
+        }
+      ]
+    }
+  ]
+}

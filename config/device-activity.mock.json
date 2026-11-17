@@ -1,0 +1,68 @@
+{
+  "$schema": "./device-activity.schema.json",
+  "schemaVersion": "0.1-mock-activity",
+  "source": "mock",
+  "generatedAt": "2026-11-17T16:00:00+07:00",
+  "events": [
+    {
+      "eventId": "mock-event-a3-light-001",
+      "roomId": "A3",
+      "objectId": "DEV_A3_LIGHT_CEILING_01",
+      "entityId": "mock.a3_light_ceiling_01",
+      "eventType": "state_changed",
+      "fromState": "off",
+      "toState": "on",
+      "occurredAt": "2026-11-17T15:42:00+07:00",
+      "sourceLabel": "Mock fixture",
+      "cause": null
+    },
+    {
+      "eventId": "mock-event-a3-camera-001",
+      "roomId": "A3",
+      "objectId": "DEV_A3_CAMERA_01",
+      "entityId": "mock.a3_camera_01",
+      "eventType": "availability_changed",
+      "fromState": "available",
+      "toState": "unavailable",
+      "occurredAt": "2026-11-17T15:10:00+07:00",
+      "sourceLabel": "Mock fixture",
+      "cause": null
+    },
+    {
+      "eventId": "mock-event-transition-tv-001",
+      "roomId": "A3_A4_TRANSITION",
+      "objectId": "DEV_TRANSITION_TV_01",
+      "entityId": "mock.transition_tv_01",
+      "eventType": "state_changed",
+      "fromState": "idle",
+      "toState": "unknown",
+      "occurredAt": "2026-11-17T14:30:00+07:00",
+      "sourceLabel": "Mock fixture",
+      "cause": null
+    },
+    {
+      "eventId": "mock-event-a4-power-001",
+      "roomId": "A4",
+      "objectId": "DEV_A4_AC_WALL_01",
+      "entityId": "mock.a4_ac_power_01",
+      "eventType": "freshness_changed",
+      "fromState": "fresh",
+      "toState": "stale",
+      "occurredAt": "2026-11-17T15:20:00+07:00",
+      "sourceLabel": "Mock fixture",
+      "cause": null
+    },
+    {
+      "eventId": "mock-event-a4-ac-001",
+      "roomId": "A4",
+      "objectId": "DEV_A4_AC_WALL_01",
+      "entityId": "mock.a4_ac_01",
+      "eventType": "state_changed",
+      "fromState": "cooling",
+      "toState": "idle",
+      "occurredAt": "2026-11-17T14:48:00+07:00",
+      "sourceLabel": "Mock fixture",
+      "cause": null
+    }
+  ]
+}
