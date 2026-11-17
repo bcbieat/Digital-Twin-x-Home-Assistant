@@ -22,8 +22,8 @@
 main{width:min(1080px,100%);margin:auto;display:grid;gap:24px}.hero{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;padding:26px 28px;background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 26px var(--shadow)}
 .kicker{font-size:.76rem;font-weight:750;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}h1{font-size:clamp(1.7rem,4vw,2.55rem);line-height:1.1;margin:.4rem 0 .6rem;text-wrap:balance}.subtitle{margin:0;color:var(--muted);max-width:62ch}.date{color:var(--muted);font-size:.9rem;white-space:nowrap}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}.stat strong{display:block;font-size:1.65rem}.stat span{color:var(--muted);font-size:.84rem}
 section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px}h2{font-size:1.1rem;margin:0}.legend{font-size:.8rem;color:var(--muted)}.tasks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.task{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:17px;display:grid;gap:11px}.task-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.task h3{font-size:1rem;margin:0;line-height:1.45}.tag{flex:none;border-radius:999px;padding:5px 9px;font-size:.72rem;font-weight:750}.done{background:var(--green-soft);color:var(--green)}.next{background:var(--amber-soft);color:var(--amber)}.planned{background:var(--blue-soft);color:var(--blue)}.result{font-size:.86rem;color:var(--muted);line-height:1.6}.result b{color:var(--ink)}
-.daily{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;display:grid;gap:14px}.daily h3{margin:0;font-size:1rem}.daily ul{margin:0;padding-left:1.35rem;display:grid;gap:7px;color:var(--muted);line-height:1.55}.daily li::marker{color:var(--green)}.next-box{border-left:4px solid var(--amber);background:var(--amber-soft);padding:13px 15px;border-radius:0 10px 10px 0;color:var(--ink);font-size:.9rem;line-height:1.6}.footer{font-size:.77rem;color:var(--muted);text-align:center}
-@media(max-width:700px){body{padding-block:18px 36px}.hero{padding:21px}.stats{grid-template-columns:1fr}.tasks{grid-template-columns:1fr}.week-grid{grid-template-columns:1fr}.week-meta{grid-template-columns:1fr}}
+.daily{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;display:grid;gap:14px}.daily h3{margin:0;font-size:1rem}.daily ul{margin:0;padding-left:1.35rem;display:grid;gap:7px;color:var(--muted);line-height:1.55}.daily li::marker{color:var(--green)}.next-box{border-left:4px solid var(--amber);background:var(--amber-soft);padding:13px 15px;border-radius:0 10px 10px 0;color:var(--ink);font-size:.9rem;line-height:1.6}.readiness-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.readiness{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--line);border-radius:14px;padding:15px;display:grid;gap:7px}.readiness.ready{border-top-color:var(--green)}.readiness.observed{border-top-color:var(--blue)}.readiness.pending{border-top-color:var(--amber)}.readiness.blocked{border-top-color:var(--amber)}.readiness small{color:var(--muted);font-size:.76rem}.readiness strong{font-size:.95rem;line-height:1.4}.readiness p{margin:0;color:var(--muted);font-size:.8rem;line-height:1.5}.footer{font-size:.77rem;color:var(--muted);text-align:center}
+@media(max-width:900px){.readiness-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:700px){body{padding-block:18px 36px}.hero{padding:21px}.stats{grid-template-columns:1fr}.tasks{grid-template-columns:1fr}.week-grid{grid-template-columns:1fr}.week-meta{grid-template-columns:1fr}.readiness-grid{grid-template-columns:1fr}}
 .week3{display:grid;gap:14px}.week-banner{background:linear-gradient(135deg,var(--green-soft),var(--surface));border:1px solid var(--line);border-radius:16px;padding:20px 22px;display:grid;gap:7px}.week-banner h2{font-size:1.3rem}.week-banner p{margin:0;color:var(--muted);line-height:1.6}.week-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.week-meta-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:13px}.week-meta-card small{display:block;color:var(--muted);font-size:.76rem}.week-meta-card strong{display:block;margin-top:4px;font-size:1rem}.week-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.week-day{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:8px}.week-day-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.week-day h3{font-size:.98rem;margin:0;line-height:1.4}.week-day time{font-size:.75rem;color:var(--green);font-weight:750;white-space:nowrap}.week-day p{margin:0;color:var(--muted);font-size:.84rem;line-height:1.55}.week-check{display:flex;align-items:flex-start;gap:8px;color:var(--muted);font-size:.8rem;line-height:1.45}.week-check::before{content:'○';color:var(--amber);font-weight:700}.week-gate{border-left:4px solid var(--green);background:var(--green-soft);padding:13px 15px;border-radius:0 10px 10px 0;color:var(--ink);font-size:.88rem;line-height:1.6}.week-gate b{color:var(--green)}
 </style>
 <main>
@@ -33,13 +33,13 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
       <h1>โครงการพัฒนาโมเดล 3D ห้อง A3 และ A4</h1>
       <p class="subtitle">ติดตามงานสำรวจ จัดทำข้อมูลอุปกรณ์ พัฒนาโมเดล 3D และเตรียมระบบแสดงผลบนเว็บไซต์</p>
     </div>
-    <div class="date">อัปเดตล่าสุด: 16 พฤศจิกายน 2569</div>
+    <div class="date">อัปเดตล่าสุด: 17 พฤศจิกายน 2569</div>
   </header>
 
   <div class="stats">
-    <div class="stat"><strong>20</strong><span>งานที่เสร็จแล้ว</span></div>
-    <div class="stat"><strong>6</strong><span>เป้าหมายสัปดาห์ที่ 3</span></div>
-    <div class="stat"><strong>3</strong><span>เกตที่ยังรอยืนยัน</span></div>
+    <div class="stat"><strong>16 พ.ย.</strong><span>วันที่สรุปผลงานล่าสุด</span></div>
+    <div class="stat"><strong>3/3</strong><span>ห้องโหลดพร้อมใน Web Demo</span></div>
+    <div class="stat"><strong>4</strong><span>สถานะความพร้อมที่ติดตามแยกกัน</span></div>
   </div>
 
   <section class="week3">
@@ -92,7 +92,7 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
       <article class="task"><div class="task-top"><h3>ปรับปรุงระบบแสดงผลโมเดลบนหน้าเว็บ</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> Deploy V2 Demo บน Vercel พร้อม GLB A3/transition/A4, room-specific breaker/device controls, visual simulation ของ breaker, AC, ไฟ, TV, plug และ CCTV; smoke test production ผ่าน และยังคง breaker เป็น visual-only</div></article>
       <article class="task"><div class="task-top"><h3>ตรวจสอบ Web Demo บน hosting และ simulation state</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> ตรวจ GLB loading, console/network, fallback, Main/branch breaker, AC, ไฟ, TV, plug และ CCTV; โหลดครบ <code>3/3 ROOMS READY</code> และบันทึกผลทดสอบในเอกสาร QA/performance</div></article>
       <article class="task"><div class="task-top"><h3>จัดทำ defect log และตรวจ AABB overlap</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> บันทึก close-up findings ของ breaker A3, transition light, vegetation และ panel/camera overlap; grouped AABB screening ไม่พบ inter-device overlap เกิน 3 mm ครบทั้งสามแกน และไม่แก้อัตโนมัติ</div></article>
-      <article class="task"><div class="task-top"><h3>วัด performance บน target device และ production network</h3><span class="tag done">เสร็จแล้ว</span></div><div class="result"><b>ผลลัพธ์:</b> ทดสอบ Acer Nitro ANV15-51 และจำลอง mobile 4G/3G; บันทึก FPS, render calls, triangles, GLB size และ network observations ใน <code>docs/TARGET_DEVICE_PERFORMANCE_2026-11-16.md</code>; acceptance thresholds และ physical mobile test ยัง pending</div></article>
+      <article class="task"><div class="task-top"><h3>วัด performance บน target device และ production network</h3><span class="tag planned">วัดผลแล้ว · รอรับรอง</span></div><div class="result"><b>ผลลัพธ์:</b> ทดสอบ Acer Nitro ANV15-51 และจำลอง mobile 4G/3G; บันทึก FPS, render calls, triangles, GLB size และ network observations ใน <code>docs/TARGET_DEVICE_PERFORMANCE_2026-11-16.md</code>; desktop เฉลี่ย 28.24 FPS, mobile emulation ราว 8–16 FPS และมี 765 render calls/frame โดย acceptance thresholds กับ physical mobile test ยัง pending</div></article>
       <article class="task"><div class="task-top"><h3>กำหนดแนวทาง Home Assistant Read-only Integration</h3><span class="tag planned">รอข้อมูลผู้ดูแล</span></div><div class="result"><b>สถานะ:</b> กำหนดเป้าหมายเป็น read-only state display โดยไม่เปิด write/live control; รอ entity inventory, backend endpoint, security review และ circuit mapping จากผู้ดูแลใน <code>docs/HOME_ASSISTANT_READ_ONLY_DECISION_2026-11-16.md</code></div></article>
     </div>
   </section>
@@ -100,18 +100,24 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
   <section>
     <div class="section-head"><h2>สรุปงานประจำวัน</h2><span class="legend">16 พฤศจิกายน 2569</span></div>
     <article class="daily">
-      <h3>สรุปงานวันนี้ · Web Demo Stabilization และเตรียม Home Assistant</h3>
+      <h3>สรุปงานเมื่อวาน · Web Demo Stabilization และเตรียม Home Assistant</h3>
+      <div class="readiness-grid" aria-label="สถานะความพร้อมของโครงการ">
+        <div class="readiness ready"><small>Demo readiness</small><strong>พร้อมสาธิตแบบควบคุม</strong><p>V2 โหลด A3 / transition / A4 ครบ <code>3/3 ROOMS READY</code> และ simulation ตอบสนองใน browser</p></div>
+        <div class="readiness observed"><small>Technical observation</small><strong>เก็บผลทดสอบแล้ว</strong><p>Desktop เฉลี่ย 28.24 FPS; mobile emulation ราว 8–16 FPS และบันทึกไว้ใน performance report</p></div>
+        <div class="readiness pending"><small>Formal acceptance</small><strong>รอยืนยันจากเจ้าของระบบ</strong><p>ยังรอ platform contract, performance thresholds และ physical mobile acceptance</p></div>
+        <div class="readiness blocked"><small>Live integration</small><strong>ยังไม่เปิดใช้งาน</strong><p>Home Assistant จำกัดไว้ที่ read-only เป้าหมาย; รอ entity inventory, backend/security และ circuit mapping</p></div>
+      </div>
       <h4>Checklist งานที่ทำแล้ว</h4>
       <ul>
         <li>✓ Deploy <code>room_3d_preview_v2</code> และ GLB A3/transition/A4 ขึ้น Vercel; แก้ root route และยืนยัน <code>3/3 ROOMS READY</code></li>
         <li>✓ Smoke test production: ตรวจ HTTP/MIME, console, network, fallback และ browser rendering; ไม่พบ GLB failure</li>
         <li>✓ แยก Control Desk และ Main/branch breaker ระหว่าง A3/A4 พร้อม mapping ปลั๊ก, AC, ไฟ, TV และ CCTV ตามห้อง</li>
         <li>✓ ตรวจ simulation response ให้วัสดุ/สถานะ 3D อัปเดตทันทีเมื่อ toggle Main/branch breaker, AC, ไฟ, TV, plug และ CCTV</li>
-        <li>✓ แก้มุมกล้อง close-up breaker A3 ให้มองจากภายใน และคง source/manual transforms โดยไม่แก้อัตโนมัติ</li>
+        <li>✓ แก้มุมกล้อง close-up breaker A3 ให้มองจากภายใน และคง source/manual transforms โดยไม่แก้อัตโนมัติ; geometry placement ยังรอตรวจ front/side/elevation</li>
         <li>✓ บันทึก defect close-up ที่ <code>docs/DEFECT_LOG_2026-11-16.md</code> และตรวจ active GLB AABB ที่ <code>docs/AABB_OVERLAP_SCREENING_2026-11-16.md</code></li>
         <li>✓ ตรวจ coordinate/placement contract ฝั่ง repository/Web Demo และบันทึก pending platform gates ที่ <code>docs/PLATFORM_CONTRACT_STATUS_2026-11-16.md</code></li>
-        <li>✓ วัด performance บน target laptop และ production network พร้อม mobile 4G/3G emulation ที่ <code>docs/TARGET_DEVICE_PERFORMANCE_2026-11-16.md</code></li>
-        <li>✓ ตรวจ Home Assistant integration gate; ยืนยันว่า inventory/backend/circuit mapping ยังไม่พร้อม และคง breaker hardware เป็น visual-only</li>
+        <li>✓ วัด performance บน target laptop และ production network พร้อม mobile 4G/3G emulation ที่ <code>docs/TARGET_DEVICE_PERFORMANCE_2026-11-16.md</code>; observation เสร็จแล้ว แต่ formal acceptance ยัง pending (desktop เฉลี่ย 28.24 FPS, mobile emulation ราว 8–16 FPS)</li>
+        <li>✓ ตรวจ Home Assistant integration gate; ยืนยันว่า inventory/backend/circuit mapping ยังไม่พร้อม และคง breaker hardware เป็น visual-only โดยกำหนดขอบเขตอนาคตเป็น read-only ผ่าน backend</li>
         <li>✓ กำหนดเป้าหมาย integration เป็น <b>Read-only Home Assistant</b> โดย credential ต้องอยู่หลัง backend และไม่อยู่ใน browser/Git</li>
       </ul>
       <h4>งานถัดไป / รอข้อมูล</h4>
@@ -120,9 +126,10 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
         <li>ขอ backend endpoint, response schema, authentication flow, CORS/rate-limit และ security boundary จาก platform/backend owner</li>
         <li>ยืนยัน circuit mapping กับผู้รับผิดชอบไฟฟ้า; simulation grouping ปัจจุบันยังไม่ใช่หลักฐานวงจรจริง</li>
         <li>รับคำตอบ platform origin/axis/heading/picking และ acceptance thresholds; ทดสอบ physical mobile device เพิ่ม</li>
+        <li>ตรวจ visual defects ที่ยังเป็น review candidate: breaker A3 แบบ front/side, transition light close-up/state parity, ขอบเขต vegetation และ panel/camera relationship โดยไม่แก้ geometry อัตโนมัติ</li>
         <li>ลดงานปั้น 3D ลงชั่วคราว เหลือเฉพาะ defect ที่ขวาง Demo แล้วแบ่งเวลาไปศึกษา Home Assistant API, integration architecture และ Entity ID mapping</li>
       </ul>
-      <div class="next-box"><b>สถานะ Definition of Done สัปดาห์ที่ 3:</b> Web Demo V2, production smoke test, simulation checklist, performance observation และ feedback/defect log พร้อมแล้ว. งานที่ยังเป็น <span class="tag planned">pending gates</span> คือ platform/field acceptance, physical mobile acceptance และข้อมูล Home Assistant จากผู้ดูแล; live integration ยังไม่เปิด และ breaker จริงยังเป็น visual-only</div>
+      <div class="next-box"><b>สถานะ Definition of Done สัปดาห์ที่ 3:</b> <b>Demo readiness</b> ผ่านแล้ว: Web Demo V2, production smoke test, simulation checklist และ feedback/defect log พร้อมใช้งาน. <b>Technical observation</b> บันทึกแล้ว แต่ <span class="tag planned">formal acceptance</span> ยังรอ platform/field acceptance, performance thresholds และ physical mobile acceptance. <b>Live integration</b> ยังไม่พร้อมจนกว่าจะได้รับข้อมูล Home Assistant จากผู้ดูแล; breaker จริงยังเป็น visual-only และห้าม optimize/เปลี่ยน geometry ก่อนยืนยัน picking, identity และหลักฐาน visual ที่เกี่ยวข้อง</div>
     </article>
   </section>
 
