@@ -33,13 +33,13 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
       <h1>โครงการพัฒนาโมเดล 3D ห้อง A3 และ A4</h1>
       <p class="subtitle">ติดตามงานสำรวจ จัดทำข้อมูลอุปกรณ์ พัฒนาโมเดล 3D และเตรียมระบบแสดงผลบนเว็บไซต์</p>
     </div>
-    <div class="date">อัปเดตล่าสุด: 17 พฤศจิกายน 2569</div>
+    <div class="date">อัปเดตล่าสุด: 17 พฤศจิกายน 2569 · สรุปงานวันนี้</div>
   </header>
 
   <div class="stats">
-    <div class="stat"><strong>16 พ.ย.</strong><span>วันที่สรุปผลงานล่าสุด</span></div>
-    <div class="stat"><strong>3/3</strong><span>ห้องโหลดพร้อมใน Web Demo</span></div>
-    <div class="stat"><strong>4</strong><span>สถานะความพร้อมที่ติดตามแยกกัน</span></div>
+    <div class="stat"><strong>17 พ.ย.</strong><span>วันที่อัปเดตล่าสุด</span></div>
+    <div class="stat"><strong>3</strong><span>พื้นที่ที่มี mock fixture</span></div>
+    <div class="stat"><strong>4</strong><span>มุมมอง/สถานะที่ทดสอบวันนี้</span></div>
   </div>
 
   <section class="week3">
@@ -130,6 +130,37 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
         <li>ลดงานปั้น 3D ลงชั่วคราว เหลือเฉพาะ defect ที่ขวาง Demo แล้วแบ่งเวลาไปศึกษา Home Assistant API, integration architecture และ Entity ID mapping</li>
       </ul>
       <div class="next-box"><b>สถานะ Definition of Done สัปดาห์ที่ 3:</b> <b>Demo readiness</b> ผ่านแล้ว: Web Demo V2, production smoke test, simulation checklist และ feedback/defect log พร้อมใช้งาน. <b>Technical observation</b> บันทึกแล้ว แต่ <span class="tag planned">formal acceptance</span> ยังรอ platform/field acceptance, performance thresholds และ physical mobile acceptance. <b>Live integration</b> ยังไม่พร้อมจนกว่าจะได้รับข้อมูล Home Assistant จากผู้ดูแล; breaker จริงยังเป็น visual-only และห้าม optimize/เปลี่ยน geometry ก่อนยืนยัน picking, identity และหลักฐาน visual ที่เกี่ยวข้อง</div>
+    </article>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>สรุปงานประจำวัน</h2><span class="legend">17 พฤศจิกายน 2569</span></div>
+    <article class="daily">
+      <h3>Mock Integration Prototype และศึกษาระบบ Home Assistant</h3>
+      <div class="readiness-grid" aria-label="สถานะ mock integration วันนี้">
+        <div class="readiness ready"><small>Reference study</small><strong>มีตัวอย่าง B1 แล้ว</strong><p>วิเคราะห์ Overview, Map, Energy, Activity, History, Media, Smart Building และเครื่องมือผู้ดูแล เพื่อใช้เป็น reference โดยไม่ดึง credential หรือแก้ B1</p></div>
+        <div class="readiness ready"><small>Mock contract</small><strong>สร้าง schema และ fixture</strong><p>กำหนด mapping/state/activity/history สำหรับ A3, พื้นที่เชื่อมต่อ และ A4 ด้วย synthetic <code>mock.*</code> IDs เท่านั้น</p></div>
+        <div class="readiness observed"><small>UI prototype</small><strong>เชื่อม fixture แบบ read-only</strong><p>Control Desk แสดง state, availability, freshness, Activity และ History พร้อม Unavailable, Unknown และ Stale</p></div>
+        <div class="readiness pending"><small>Live integration</small><strong>รอการประชุมยืนยันข้อมูล</strong><p>ยังรอ entity inventory, backend/security contract, access policy และ circuit mapping ของ A3/A4</p></div>
+      </div>
+      <h4>Checklist งานที่ทำแล้ว</h4>
+      <ul>
+        <li>✓ วิเคราะห์ Home Assistant B1 เป็น reference: การแบ่ง Area / Device / Entity, status <code>on/off/unavailable/unknown</code>, Activity, History, Media และ Smart Building แบบ room-scoped</li>
+        <li>✓ สร้าง mock mapping ของ A3, <code>A3_A4_TRANSITION</code> และ A4 โดยใช้ canonical 3D object/node IDs และรองรับหนึ่งอุปกรณ์ต่อหลาย entity</li>
+        <li>✓ สร้าง normalized mock state, Activity และ History fixtures; แยก <code>unavailable</code>, <code>unknown</code> และ <code>stale</code> ออกจากสถานะ <code>off</code></li>
+        <li>✓ เชื่อม fixture เข้ากับ <code>room_3d_preview_v2.html</code> แบบ browser-local read-only พร้อมแสดง alert summary และกรองข้อมูลตามห้อง</li>
+        <li>✓ เพิ่ม Activity/History tabs เพื่อแสดง state transition, timestamp, mock source, cause fallback และ measurement samples โดยไม่เรียก Home Assistant จริง</li>
+        <li>✓ ปรับ Room A3 เป็น camera view จากจุดอ้างอิงกล้อง A3 และ Room A4 เป็น preview มุม NW ระดับความสูงเดียวกัน; ยังไม่เพิ่มหรือย้ายกล้อง A4 ใน Blender/GLB</li>
+        <li>✓ ตรวจ JSON parsing, fixture HTTP loading, JavaScript syntax, room-filtering markers และ <code>git diff --check</code>; ไม่พบ endpoint, credential หรือ B1 entity ID จริงใน mock prototype</li>
+      </ul>
+      <h4>งานถัดไป / รอข้อมูล</h4>
+      <ul>
+        <li>ประชุมขอ entity inventory และ access policy สำหรับ A3/A4 โดยไม่ส่ง token, password, cookie หรือ secret ผ่านเอกสารโครงการ</li>
+        <li>ยืนยัน backend/read-only API, authentication, CORS, rate limit, audit log, stale threshold และ history/activity retention</li>
+        <li>สำรวจรุ่น ขนาด จุดติดตั้ง และทิศทางจริงของอุปกรณ์ IoT; เริ่มจาก presence sensor, smart plug, temperature/humidity sensor และกล้อง A4 มุม NW ก่อนปั้นใน Blender</li>
+        <li>หลังได้ข้อมูลจริง ให้เปลี่ยนเฉพาะ mapping/backend adapter ที่ผ่านอนุมัติ โดยคง mock fixture และ breaker visual-only ไว้เป็น regression reference</li>
+      </ul>
+      <div class="next-box"><b>สถานะวันนี้:</b> prototype พร้อมสำหรับ review ในรูปแบบ <span class="tag planned">mock-only / read-only</span> แล้ว. UI ไม่เชื่อม Home Assistant จริง, ไม่ส่ง service call, ไม่เปิด user/web/automation control และยังไม่แก้ตำแหน่งอุปกรณ์ใน Blender. การเชื่อมต่อจริงจะเริ่มได้หลังผู้ดูแลอนุมัติ inventory, security boundary และ circuit mapping เท่านั้น</div>
     </article>
   </section>
 
