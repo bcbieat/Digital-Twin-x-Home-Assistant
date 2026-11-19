@@ -33,12 +33,12 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
       <h1>โครงการพัฒนาโมเดล 3D ห้อง A3 และ A4</h1>
       <p class="subtitle">ติดตามงานสำรวจ จัดทำข้อมูลอุปกรณ์ พัฒนาโมเดล 3D และเตรียมระบบแสดงผลบนเว็บไซต์</p>
     </div>
-    <div class="date">อัปเดตล่าสุด: 18 พฤศจิกายน 2569 · แผนงานวันนี้</div>
+    <div class="date">อัปเดตล่าสุด: 19 พฤศจิกายน 2569 · แผนงานวันนี้</div>
   </header>
 
   <div class="stats">
-    <div class="stat"><strong>18 พ.ย.</strong><span>วันที่วางแผนงานวันนี้</span></div>
-    <div class="stat"><strong>4</strong><span>กลุ่มงานที่ต้องทำวันนี้</span></div>
+    <div class="stat"><strong>19 พ.ย.</strong><span>วันที่วางแผนงานวันนี้</span></div>
+    <div class="stat"><strong>6</strong><span>workstreams เตรียมระบบวันนี้</span></div>
     <div class="stat"><strong>0</strong><span>การเชื่อม Home Assistant จริง</span></div>
   </div>
 
@@ -58,7 +58,7 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
       <article class="week-day"><div class="week-day-top"><h3>Smoke test และ freeze scope</h3><time>16 พ.ย.</time></div><p>เปิดหน้า production รุ่นเดิม ตรวจ GLB, console, network และรวบรวม defect ก่อนเพิ่มงานใหม่</p><div class="week-check">ตรวจ A3 / transition / A4 โหลดสำเร็จ</div><div class="week-check">บันทึกปัญหา breaker, transition light และต้นไม้</div></article>
       <article class="week-day"><div class="week-day-top"><h3>แก้ visual และ state defects</h3><time>17 พ.ย.</time></div><p>แก้การตอบสนองของไฟและอุปกรณ์ให้ตรงกับสถานะจำลอง พร้อมตรวจว่าตำแหน่ง manual ไม่ถูกย้าย</p><div class="week-check">ปิดไฟแล้ว emissive และ PointLight ดับ</div><div class="week-check">Breaker A3 อยู่ในกรอบผนัง</div></article>
       <article class="week-day"><div class="week-day-top"><h3>วัด performance บนอุปกรณ์เป้าหมาย</h3><time>18 พ.ย.</time></div><p>เทียบ GLB size, draw calls, readiness และ FPS กับ baseline โดยทดสอบ desktop และ mobile อย่างน้อยอย่างละหนึ่งเครื่อง</p><div class="week-check">บันทึก browser, GPU, network และผล cold/cache</div><div class="week-check">ยังไม่ optimize geometry ก่อนยืนยัน picking budget</div></article>
-      <article class="week-day"><div class="week-day-top"><h3>เตรียม presentation flow</h3><time>19 พ.ย.</time></div><p>จัดลำดับการสาธิต overview → breaker trip → AC → ไฟและอุปกรณ์ → reset พร้อมข้อความ fallback/offline</p><div class="week-check">ทำขั้นตอนสาธิตแบบสั้นสำหรับหัวหน้า</div><div class="week-check">ยืนยันปุ่ม Reset เริ่มรอบใหม่ได้</div></article>
+      <article class="week-day"><div class="week-day-top"><h3>เตรียมระบบ IoT และ Energy Monitoring</h3><time>19 พ.ย.</time></div><p>สรุป BOM, วาง hardware inventory, circuit survey และ commissioning flow สำหรับ Raspberry Pi, Zigbee switch, IR remote และ meter ของ A3/A4</p><div class="week-check">กำหนด 4 ช่องวัด: A3 Total / A3 AC / A4 Total / A4 AC</div><div class="week-check">คง Home Assistant เป็น mock-only/read-only และ breaker เป็น visual-only</div></article>
       <article class="week-day"><div class="week-day-top"><h3>Demo acceptance และเก็บ feedback</h3><time>20 พ.ย.</time></div><p>ให้หัวหน้าทดลองตาม checklist เก็บสิ่งที่เข้าใจยากและจัดลำดับงานสัปดาห์ที่ 4</p><div class="week-check">แยก bug, usability feedback และ feature request</div><div class="week-check">บันทึก known limitations ของ simulation</div></article>
       <article class="week-day"><div class="week-day-top"><h3>Approval gates ที่ต้องติดตาม</h3><time>ตลอดสัปดาห์</time></div><p>ติดตามคำยืนยันจาก platform owner, source owner และ Home Assistant admin โดยไม่ใส่ credentials หรือเปิด live control</p><div class="week-check">coordinate / identity / picking contract</div><div class="week-check">entity inventory และ backend security boundary</div></article>
     </div>
@@ -160,29 +160,32 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
         <li>สำรวจรุ่น ขนาด จุดติดตั้ง และทิศทางจริงของอุปกรณ์ IoT; เริ่มจาก presence sensor, smart plug, temperature/humidity sensor และกล้อง A4 มุม NW ก่อนปั้นใน Blender</li>
         <li>หลังได้ข้อมูลจริง ให้เปลี่ยนเฉพาะ mapping/backend adapter ที่ผ่านอนุมัติ โดยคง mock fixture และ breaker visual-only ไว้เป็น regression reference</li>
       </ul>
-      <div class="next-box"><b>สถานะวันนี้:</b> prototype พร้อมสำหรับ review ในรูปแบบ <span class="tag planned">mock-only / read-only</span> แล้ว. UI ไม่เชื่อม Home Assistant จริง, ไม่ส่ง service call, ไม่เปิด user/web/automation control และยังไม่แก้ตำแหน่งอุปกรณ์ใน Blender. การเชื่อมต่อจริงจะเริ่มได้หลังผู้ดูแลอนุมัติ inventory, security boundary และ circuit mapping เท่านั้น</div>
+      <div class="next-box"><b>สถานะวันที่ 17 พ.ย.:</b> prototype พร้อมสำหรับ review ในรูปแบบ <span class="tag planned">mock-only / read-only</span> แล้ว. UI ไม่เชื่อม Home Assistant จริง, ไม่ส่ง service call, ไม่เปิด user/web/automation control และยังไม่แก้ตำแหน่งอุปกรณ์ใน Blender. การเชื่อมต่อจริงจะเริ่มได้หลังผู้ดูแลอนุมัติ inventory, security boundary และ circuit mapping เท่านั้น</div>
     </article>
   </section>
 
   <section>
-    <div class="section-head"><h2>แผนงานวันนี้</h2><span class="legend">18 พฤศจิกายน 2569 · ยังไม่เริ่มจนกว่าจะตรวจและยืนยัน</span></div>
+    <div class="section-head"><h2>แผนงานวันนี้</h2><span class="legend">19 พฤศจิกายน 2569 · เตรียมระบบก่อนติดตั้งจริง</span></div>
     <article class="daily">
-      <h3>QA Mock Prototype และเตรียมข้อมูลสำหรับการประชุม</h3>
-      <div class="readiness-grid" aria-label="แผนงานและประตูอนุมัติวันนี้">
-        <div class="readiness pending"><small>Production UI QA</small><strong>ตรวจ V2 บน Vercel</strong><p>ยืนยัน state, Activity/History, room filtering, A3/A4 camera views และไม่มี Home Assistant request จริง</p></div>
-        <div class="readiness pending"><small>Mock baseline</small><strong>ตรวจ abnormal states</strong><p>ทดสอบ <code>off</code>, <code>unavailable</code>, <code>unknown</code>, <code>stale</code> และ <code>visual-only</code> แยกจากกัน</p></div>
-        <div class="readiness pending"><small>IoT asset inventory</small><strong>เตรียมรายการอุปกรณ์</strong><p>รวบรวม sensor, smart plug, temperature/humidity และกล้อง A4 NW พร้อมช่องขนาด/จุดติดตั้งที่รอสำรวจ</p></div>
-        <div class="readiness blocked"><small>Home Assistant live integration</small><strong>รอผลการประชุม</strong><p>ยังไม่ต่อระบบจริงจนกว่าจะได้ entity inventory, access policy, backend/security contract และ circuit mapping</p></div>
+      <h3>Hardware Readiness, Circuit Mapping และ Mock Energy Contract</h3>
+      <div class="readiness-grid" aria-label="แผนงานเตรียมระบบ IoT วันนี้">
+        <div class="readiness pending"><small>Hardware inventory</small><strong>ยืนยัน BOM และรุ่นจริง</strong><p>จัดรายการ Raspberry Pi 5, PSU, cooler, microSD, SONOFF Dongle-E, switch และ Zigbee IR remote พร้อมช่องรุ่น/firmware/evidence</p></div>
+        <div class="readiness pending"><small>Energy architecture</small><strong>กำหนด 4 ช่องวัด</strong><p>Energy meter 2 ชุด × 2 clamp: A3 Total, A3 AC, A4 Total และ A4 AC พร้อมบทบาทและหน่วยวัดที่ต้องยืนยัน</p></div>
+        <div class="readiness pending"><small>Circuit survey</small><strong>ตรวจวงจรและจุดติดตั้ง</strong><p>ยืนยัน breaker, สายที่ CT ครอบ, neutral/load ของ switch และ mapping ไฟ 3 channel โดยให้ผู้รับผิดชอบไฟฟ้าตรวจ</p></div>
+        <div class="readiness pending"><small>Commissioning</small><strong>เตรียมหลักฐานติดตั้ง</strong><p>วาง checklist ตั้งแต่ pairing/adoption, entity/channel mapping, meter cross-check, reconnect และผู้อนุมัติ</p></div>
+        <div class="readiness observed"><small>Mock energy UI</small><strong>ออกแบบ contract ก่อน live</strong><p>เตรียม normalized state สำหรับ W/A/V/kWh, timestamp, availability และ freshness โดยใช้ synthetic <code>mock.*</code> IDs</p></div>
+        <div class="readiness blocked"><small>Live integration</small><strong>ยังไม่เปิดใช้งาน</strong><p>รอ entity inventory, backend/security contract และ circuit approval; ห้ามใส่ token, URL, entity ID จริง หรือ service call</p></div>
       </div>
       <h4>Checklist ที่ต้องทำวันนี้</h4>
       <ul>
-        <li>□ เปิด production V2 ตรวจ Mock HA state, Activity/History, การกรอง A3/A4 และ camera view; ตรวจ console/network ว่าไม่มี request ไป Home Assistant</li>
-        <li>□ ตรวจ mock fixtures ให้ค่าที่แสดงตรงกับ schema และไม่แปลง <code>unavailable</code> หรือ <code>unknown</code> เป็น <code>off</code></li>
-        <li>□ เตรียม IoT Asset Inventory: canonical <code>objectId</code>, room, device type, รูปอ้างอิง, รุ่น/ขนาด, จุดติดตั้ง, ความสูง, ทิศทาง และข้อมูลที่ต้องให้ผู้ดูแลยืนยัน</li>
-        <li>□ เตรียมคำถามประชุมเรื่อง entity/domain/attributes, สิทธิ์อ่าน, stale/unavailable behavior, backend endpoint/security, history retention และ circuit mapping</li>
-        <li>□ ไม่ปั้น/ย้ายอุปกรณ์ Blender หรือ export GLB จนกว่าจะได้ขนาด ตำแหน่ง และการอนุมัติ; กล้อง A4 NW ยังเป็น camera-view preview เท่านั้น</li>
+        <li>□ สร้าง Hardware Inventory: asset ID, vendor/model, protocol, room/location, channel, installation status, evidence และ owner</li>
+        <li>□ บันทึก Energy Map: <code>A3_TOTAL</code>, <code>A3_AC</code>, <code>A4_TOTAL</code>, <code>A4_AC</code>; เตรียมคำนวณ Other Load = Total − AC เมื่อ timestamp และหน่วยตรงกัน</li>
+        <li>□ เตรียม Circuit/Installation Survey: breaker A3/A4, CT ครอบ conductor เส้นเดียว, ทิศทาง CT, พิกัดโหลด, neutral และ mapping switch 1-gang/2-gang รวม 3 lighting channels</li>
+        <li>□ ทำ Commissioning Checklist สำหรับ pairing Zigbee, entity/channel verification, on/off/readback, unavailable/reconnect, meter reading cross-check และ sign-off</li>
+        <li>□ กำหนด Mock Energy Contract และ acceptance cases: <code>available</code>, <code>unavailable</code>, <code>unknown</code>, <code>stale</code>, missing channel และค่าคำนวณติดลบผิดปกติ</li>
+        <li>□ ตรวจขอบเขตความปลอดภัย: browser ไม่เรียก Home Assistant โดยตรง, credential อยู่ server-side ในอนาคต, breaker ยังคง visual-only และไม่แก้/ย้าย Blender transforms หรือ export GLB</li>
       </ul>
-      <div class="next-box"><b>Definition of Done วันนี้:</b> บันทึกผล QA และรายการข้อมูลที่ต้องขอในการประชุม โดยคง prototype เป็น mock-only/read-only; ไม่มีการเชื่อม Home Assistant จริง, ไม่มีการเปิด control, ไม่มีการเปลี่ยน Blender transforms และไม่มีการอ้างว่า acceptance ผ่านก่อนมีหลักฐาน</div>
+      <div class="next-box"><b>Definition of Done วันนี้:</b> มี Hardware Inventory template, Energy Map 4 ช่อง, Circuit/Installation questions, Commissioning checklist และ Mock Energy acceptance criteria พร้อมรายการ owner/blocker; ยังคงระบบเป็น mock-only/read-only ไม่มี live I/O ไม่มี electrical control และไม่มีการอ้างว่าติดตั้งหรือรับรองแล้ว</div>
     </article>
   </section>
 
