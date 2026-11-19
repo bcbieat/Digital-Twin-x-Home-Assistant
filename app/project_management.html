@@ -38,7 +38,7 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
 
   <div class="stats">
     <div class="stat"><strong>19 พ.ย.</strong><span>วันที่วางแผนงานวันนี้</span></div>
-    <div class="stat"><strong>6</strong><span>workstreams เตรียมระบบวันนี้</span></div>
+    <div class="stat"><strong>7</strong><span>workstreams เตรียมระบบวันนี้</span></div>
     <div class="stat"><strong>0</strong><span>การเชื่อม Home Assistant จริง</span></div>
   </div>
 
@@ -189,5 +189,36 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
     </article>
   </section>
 
-  <div class="footer">Innovative Village · 3D Modeling Project</div>
+  <section>
+    <div class="section-head"><h2>สรุปผลการทำงานวันนี้</h2><span class="legend">19 พฤศจิกายน 2569 · Breaker A3 High-end WIP</span></div>
+    <article class="daily">
+      <h3>Reference-matched Hero Asset และขอบเขตการส่งมอบ</h3>
+      <div class="readiness-grid" aria-label="สถานะงาน 3D Breaker A3 วันนี้">
+        <div class="readiness ready"><small>Scene audit</small><strong>ตรวจแบบ read-only แล้ว</strong><p>ตรวจ scene, hierarchy, material, camera และ lighting; เลือก Breaker A3 เป็น Hero Asset แรกโดยไม่แก้ original</p></div>
+        <div class="readiness ready"><small>Hero WIP</small><strong>Pass 1–4 เสร็จแล้ว</strong><p>Product Structure, Mechanical Detail, Surface/Material และ Lighting/Hero Presentation อยู่ใน WIP collection แยก</p></div>
+        <div class="readiness ready"><small>Reference match</small><strong>21 × 20 × 9 cm</strong><p>ยืนยันขนาดกว้าง × สูง × หนา และปรับ WIP ให้ใกล้รูป Bi-Tek / BT-63 จากภาพหลายมุม</p></div>
+        <div class="readiness observed"><small>Final WIP review</small><strong>ผ่านสำหรับ visual review</strong><p>dimension envelope ตรง, source transforms ไม่เปลี่ยน และติดตั้ง context ถูกแยกเป็น WIP-only</p></div>
+      </div>
+      <h4>รายการที่ทำแล้ว</h4>
+      <ul>
+        <li>✓ สร้าง <code>WIP_HERO_BREAKER_A3__PASS1_PRODUCT_STRUCTURE</code> แบบ non-destructive พร้อมแยก object data และ materials</li>
+        <li>✓ เพิ่ม housing depth, gasket, glass lip, hinge, latch, screw recess, DIN rail และ internal breaker modules</li>
+        <li>✓ สร้าง PBR-style surface สำหรับ cream enclosure, smoked/frosted door, rubber seal, metal, red handles และ internal plastic</li>
+        <li>✓ สร้าง WIP lighting rig และ hero/front/side cameras โดยไม่แก้ original cameras/lights</li>
+        <li>✓ ใช้ reference photos จาก <code>assets/breakerA3</code>; บันทึก Bi-Tek, BT-63 family และ visible ratings C50/C10/C16/C20/C32</li>
+        <li>✓ เพิ่ม installation context แบบ WIP-only: mounting pads, cable glands, upper conduit และ lower conduits; ปรับ routing หลัง render review</li>
+        <li>✓ Final review ยืนยัน dimension envelope <code>0.21 × 0.20 × 0.09 m</code>; WIP อนุมัติสำหรับ visual review เท่านั้น</li>
+      </ul>
+      <h4>ขอบเขตที่ยังคงล็อก</h4>
+      <ul>
+        <li>Original Blender objects และ manual transforms ไม่ถูกแก้หรือย้าย</li>
+        <li>Breaker ยังคงเป็น <b>visual-only</b>; ไม่มี breaker command หรือ Home Assistant control</li>
+        <li>Browser ไม่เรียก Home Assistant โดยตรง และไม่มี credential ใน frontend</li>
+        <li>ยังไม่ replace original asset และยังไม่ export/เขียนทับ GLB</li>
+      </ul>
+      <div class="next-box"><b>สถานะปิดงานวันนี้:</b> WIP Breaker A3 พร้อมสำหรับการพิจารณาด้านภาพและการนำเสนอแล้ว แต่ยังไม่ใช่ engineering-accurate asset. ขั้นถัดไปต้องรอ approval สำหรับการแทนที่ original, ยืนยันขนาด/รุ่นทางวิศวกรรม และกำหนดขั้นตอน export ที่ชัดเจน</div>
+    </article>
+  </section>
+
+  <div class="footer">Innovative Village · 3D Modeling Project · WIP review only</div>
 </main>
