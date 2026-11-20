@@ -33,12 +33,12 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
       <h1>โครงการพัฒนาโมเดล 3D ห้อง A3 และ A4</h1>
       <p class="subtitle">ติดตามงานสำรวจ จัดทำข้อมูลอุปกรณ์ พัฒนาโมเดล 3D และเตรียมระบบแสดงผลบนเว็บไซต์</p>
     </div>
-    <div class="date">อัปเดตล่าสุด: 19 พฤศจิกายน 2569 · แผนงานวันนี้</div>
+    <div class="date">อัปเดตล่าสุด: 20 พฤศจิกายน 2569 · สรุปงานวันนี้</div>
   </header>
 
   <div class="stats">
-    <div class="stat"><strong>19 พ.ย.</strong><span>วันที่วางแผนงานวันนี้</span></div>
-    <div class="stat"><strong>7</strong><span>workstreams เตรียมระบบวันนี้</span></div>
+    <div class="stat"><strong>20 พ.ย.</strong><span>วันที่สรุปและทบทวน WIP</span></div>
+    <div class="stat"><strong>4</strong><span>approval gates ของ Breaker A3</span></div>
     <div class="stat"><strong>0</strong><span>การเชื่อม Home Assistant จริง</span></div>
   </div>
 
@@ -217,6 +217,36 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
         <li>ยังไม่ replace original asset และยังไม่ export/เขียนทับ GLB</li>
       </ul>
       <div class="next-box"><b>สถานะปิดงานวันนี้:</b> WIP Breaker A3 พร้อมสำหรับการพิจารณาด้านภาพและการนำเสนอแล้ว แต่ยังไม่ใช่ engineering-accurate asset. ขั้นถัดไปต้องรอ approval สำหรับการแทนที่ original, ยืนยันขนาด/รุ่นทางวิศวกรรม และกำหนดขั้นตอน export ที่ชัดเจน</div>
+    </article>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>สรุปผลการทำงานวันนี้</h2><span class="legend">20 พฤศจิกายน 2569 · Breaker A3 WIP Review &amp; Approval Gate</span></div>
+    <article class="daily">
+      <h3>Visual Review, Handoff และขอบเขตก่อนนำ WIP ไปใช้จริง</h3>
+      <div class="readiness-grid" aria-label="สถานะการทบทวน Breaker A3 WIP วันที่ 20 พฤศจิกายน">
+        <div class="readiness ready"><small>Visual review</small><strong>ผ่านในระดับ WIP</strong><p>Hero/front/side views แสดง enclosure, smoked door, internal modules และ installation context ตาม reference ที่มี</p></div>
+        <div class="readiness ready"><small>Dimension gate</small><strong>21 × 20 × 9 cm</strong><p>Dimension envelope กว้าง × สูง × หนา ตรงกับค่าที่ผู้ใช้ยืนยันสำหรับ visual model</p></div>
+        <div class="readiness observed"><small>Source protection</small><strong>Non-destructive</strong><p>WIP collection, materials, lighting และ installation context แยกจาก original; manual transforms เดิมไม่ถูกแก้</p></div>
+        <div class="readiness pending"><small>Final integration</small><strong>รออนุมัติขั้นถัดไป</strong><p>ยังไม่ replace original, ไม่ export/เขียนทับ GLB และยังไม่ถือเป็น engineering-approved asset</p></div>
+      </div>
+      <h4>ผลการทบทวนวันนี้</h4>
+      <ul>
+        <li>✓ ตรวจ visual hierarchy ของ Bi-Tek / BT-63 reference, cream enclosure, smoked/frosted door, red handles และ lower label strip</li>
+        <li>✓ ตรวจ dimension envelope <code>0.21 × 0.20 × 0.09 m</code> และคงสถานะเป็น photo-matched visual WIP</li>
+        <li>✓ ตรวจ photoreal surface revision และ installation context: mounting pads, cable glands, upper conduit และ lower conduits</li>
+        <li>✓ ยืนยันว่า original Blender objects, original materials และ protected/manual transforms ไม่ถูกแก้หรือย้าย</li>
+        <li>✓ แยก visual acceptance ออกจาก engineering verification, circuit approval และ safety approval อย่างชัดเจน</li>
+      </ul>
+      <h4>Approval gates ที่ยังเปิดอยู่</h4>
+      <ul>
+        <li>รอคำตัดสินว่าจะนำ WIP ไป replace original asset หรือคงไว้เป็น review variant</li>
+        <li>รอยืนยัน exact enclosure model, internal arrangement, conduit routing และวิธีติดตั้งจากผู้รับผิดชอบหน้างาน</li>
+        <li>รอกำหนด scoped/reversible GLB export workflow และตรวจ hierarchy, pivot, material compatibility ก่อน export</li>
+        <li>คง breaker เป็น <b>visual-only</b>; ไม่มี breaker command, live electrical control หรือ Home Assistant service call</li>
+        <li>คง security boundary: browser ไม่เรียก Home Assistant โดยตรง และ credential ต้องอยู่ server-side หากเชื่อมต่อในอนาคต</li>
+      </ul>
+      <div class="next-box"><b>Definition of Done วันที่ 20 พ.ย.:</b> Breaker A3 WIP ผ่าน visual review พร้อม dimension และ reference evidence, แยกจาก original แบบ non-destructive และพร้อมสำหรับ handoff/approval. งานยังไม่ถือว่า engineering-approved, ยังไม่ replace original, ยังไม่ export GLB และยังไม่มี live Home Assistant หรือ electrical control</div>
     </article>
   </section>
 
