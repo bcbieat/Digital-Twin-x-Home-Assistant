@@ -33,12 +33,12 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
       <h1>โครงการพัฒนาโมเดล 3D ห้อง A3 และ A4</h1>
       <p class="subtitle">ติดตามงานสำรวจ จัดทำข้อมูลอุปกรณ์ พัฒนาโมเดล 3D และเตรียมระบบแสดงผลบนเว็บไซต์</p>
     </div>
-    <div class="date">อัปเดตล่าสุด: 20 พฤศจิกายน 2569 · สรุปงานวันนี้</div>
+    <div class="date">อัปเดตล่าสุด: 23 พฤศจิกายน 2569 · สรุปงานประจำสัปดาห์</div>
   </header>
 
   <div class="stats">
-    <div class="stat"><strong>20 พ.ย.</strong><span>วันที่สรุปและทบทวน WIP</span></div>
-    <div class="stat"><strong>4</strong><span>approval gates ของ Breaker A3</span></div>
+    <div class="stat"><strong>23 พ.ย.</strong><span>วันที่สรุปงานประจำสัปดาห์</span></div>
+    <div class="stat"><strong>6</strong><span>milestones งาน 3D ที่ปิดได้</span></div>
     <div class="stat"><strong>0</strong><span>การเชื่อม Home Assistant จริง</span></div>
   </div>
 
@@ -247,6 +247,49 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
         <li>คง security boundary: browser ไม่เรียก Home Assistant โดยตรง และ credential ต้องอยู่ server-side หากเชื่อมต่อในอนาคต</li>
       </ul>
       <div class="next-box"><b>Definition of Done วันที่ 20 พ.ย.:</b> Breaker A3 WIP ผ่าน visual review พร้อม dimension และ reference evidence, แยกจาก original แบบ non-destructive และพร้อมสำหรับ handoff/approval. งานยังไม่ถือว่า engineering-approved, ยังไม่ replace original, ยังไม่ export GLB และยังไม่มี live Home Assistant หรือ electrical control</div>
+    </article>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>สรุปงานประจำสัปดาห์</h2><span class="legend">17–23 พฤศจิกายน 2569 · รายงานสำหรับหัวหน้า</span></div>
+    <article class="daily">
+      <h3>ผลการทำงานหลัก: Web Demo, IoT Readiness และ High-end Breaker A3</h3>
+      <div class="readiness-grid" aria-label="สรุปสถานะงานประจำสัปดาห์">
+        <div class="readiness ready"><small>Web / Demo</small><strong>Mock-only พร้อม review</strong><p>วาง mock mapping, state, activity, history และ acceptance contract โดยยังไม่เชื่อม Home Assistant จริง</p></div>
+        <div class="readiness ready"><small>IoT preparation</small><strong>เตรียม inventory และ commissioning</strong><p>กำหนด Hardware Inventory, Energy Map 4 ช่อง, circuit survey, Zigbee commissioning และ security boundary</p></div>
+        <div class="readiness ready"><small>3D / Hero asset</small><strong>Breaker A3 WIP ผ่าน visual review</strong><p>พัฒนา high-end geometry, microdetail, materials, decals, installation context และ final lighting แบบ WIP-only</p></div>
+        <div class="readiness pending"><small>Acceptance gate</small><strong>รอ engineering / integration approval</strong><p>ยังไม่ replace original, ยังไม่ export GLB และยังไม่เปิด live electrical หรือ Home Assistant control</p></div>
+      </div>
+      <h4>สิ่งที่ทำสำเร็จในสัปดาห์นี้</h4>
+      <ul>
+        <li>✓ ตรวจและจัดระบบ domain/contract สำหรับ Home Assistant แบบ mock-only/read-only: available, unavailable, unknown, stale, missing channel และ negative derived value</li>
+        <li>✓ เตรียม Hardware Inventory, Energy Map <code>A3_TOTAL</code>/<code>A3_AC</code>/<code>A4_TOTAL</code>/<code>A4_AC</code>, Other Load rule และ Circuit/Installation Survey</li>
+        <li>✓ จัดทำ Commissioning Checklist ครอบคลุม Zigbee pairing, entity/channel verification, on/off/readback, reconnect, meter cross-check และ sign-off</li>
+        <li>✓ ตรวจ security boundary: browser ไม่เรียก Home Assistant โดยตรง, credential อยู่ server-side ในอนาคต และ breaker เป็น visual-only</li>
+        <li>✓ ทำ Read-only Scene Audit และสร้าง WIP Breaker A3 จาก original แบบแยก data/materials โดยไม่แก้ protected transforms</li>
+        <li>✓ พัฒนา High-end Breaker A3: geometry reconstruction, material/PBR foundation, microdetail, lighting, render, reference match และ installation context</li>
+        <li>✓ ใช้ reference photos ของ Bi-Tek/BT-63 และยืนยัน envelope WIP ที่ <code>0.21 × 0.20 × 0.09 m</code></li>
+        <li>✓ ลบชุดซ้อนที่ไม่ใช้และ root <code>ELEC_A3_PANEL_01</code> ตามที่ตรวจพบ โดยคง QA source และ WIP reconstruction ที่จำเป็น</li>
+        <li>✓ ตรวจ module spacing, consolidate decals และสร้าง vector-authored decal workflow สำหรับ logo, warning, BT-63, ratings และ MAIN</li>
+      </ul>
+      <h4>ประเด็นที่ต้องแจ้งหัวหน้า</h4>
+      <ul>
+        <li>Breaker A3 ผ่านในระดับ <b>visual WIP review</b> ไม่ใช่ engineering-approved หรือ manufacturer-certified model</li>
+        <li>ตำแหน่งและ transforms ของ original Blender asset ถูกคงไว้; งาน high-end อยู่ใน WIP collection แยก</li>
+        <li>ขนาด 21 × 20 × 9 cm เป็นค่าที่ใช้กับ visual model ตามข้อมูลอ้างอิงปัจจุบัน ยังควรยืนยันด้วยเอกสาร/การวัดทางวิศวกรรม</li>
+        <li>ยังไม่มีการติดตั้งจริง, live electrical control, Home Assistant service call หรือการใช้ credential จริง</li>
+        <li>GLB export และการ replace original ถูกล็อกไว้จนกว่าจะได้รับ approval ด้าน hierarchy, material, safety และ integration</li>
+      </ul>
+      <h4>แผนงานถัดไป</h4>
+      <ul>
+        <li>□ ขอหัวหน้ายืนยัน visual direction และอนุมัติสถานะ Breaker A3 WIP สำหรับใช้เป็น presentation asset</li>
+        <li>□ ยืนยัน exact model, engineering dimensions, internal module arrangement และ installation routing กับผู้รับผิดชอบหน้างาน</li>
+        <li>□ ทำ reference accuracy pass ต่อเฉพาะจุดที่มีหลักฐานใหม่ โดยไม่แตะ original transforms</li>
+        <li>□ สรุป Hardware Inventory/owner/evidence และขอ circuit mapping ที่ผู้รับผิดชอบไฟฟ้าลงนาม</li>
+        <li>□ นัด review backend endpoint, read-only authentication, CORS, rate limit, audit log และ retention policy</li>
+        <li>□ หลัง approval จึงค่อยวางแผน scoped/reversible integration และ GLB export โดยเก็บ WIP/original fallback ไว้เสมอ</li>
+      </ul>
+      <div class="next-box"><b>Executive status:</b> สัปดาห์นี้ปิด milestone ด้าน mock IoT contract, commissioning preparation และ high-end Breaker A3 visual WIP ได้แล้ว. งานพร้อมสำหรับ supervisor review แต่ยังต้องรอ engineering, circuit, security และ export approval ก่อนนำไปใช้จริงหรือเชื่อมต่อระบบภายนอก</div>
     </article>
   </section>
 
