@@ -33,12 +33,12 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
       <h1>โครงการพัฒนาโมเดล 3D ห้อง A3 และ A4</h1>
       <p class="subtitle">ติดตามงานสำรวจ จัดทำข้อมูลอุปกรณ์ พัฒนาโมเดล 3D และเตรียมระบบแสดงผลบนเว็บไซต์</p>
     </div>
-    <div class="date">อัปเดตล่าสุด: 23 พฤศจิกายน 2569 · สรุปงานประจำสัปดาห์</div>
+    <div class="date">อัปเดตล่าสุด: 23 พฤศจิกายน 2569 · แผนงานวันนี้</div>
   </header>
 
   <div class="stats">
-    <div class="stat"><strong>23 พ.ย.</strong><span>วันที่สรุปงานประจำสัปดาห์</span></div>
-    <div class="stat"><strong>6</strong><span>milestones งาน 3D ที่ปิดได้</span></div>
+    <div class="stat"><strong>23 พ.ย.</strong><span>วันที่เริ่มแผนงานถัดไป</span></div>
+    <div class="stat"><strong>6</strong><span>tasks ที่วางแผนดำเนินการ</span></div>
     <div class="stat"><strong>0</strong><span>การเชื่อม Home Assistant จริง</span></div>
   </div>
 
@@ -290,6 +290,35 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
         <li>□ หลัง approval จึงค่อยวางแผน scoped/reversible integration และ GLB export โดยเก็บ WIP/original fallback ไว้เสมอ</li>
       </ul>
       <div class="next-box"><b>Executive status:</b> สัปดาห์นี้ปิด milestone ด้าน mock IoT contract, commissioning preparation และ high-end Breaker A3 visual WIP ได้แล้ว. งานพร้อมสำหรับ supervisor review แต่ยังต้องรอ engineering, circuit, security และ export approval ก่อนนำไปใช้จริงหรือเชื่อมต่อระบบภายนอก</div>
+    </article>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>แผนงานวันนี้</h2><span class="legend">23 พฤศจิกายน 2569 · จาก weekly next steps สู่ task ที่ทำได้จริง</span></div>
+    <article class="daily">
+      <h3>Approval Preparation, Accuracy Evidence และ Integration Readiness</h3>
+      <div class="readiness-grid" aria-label="แผนงานวันนี้">
+        <div class="readiness pending"><small>Supervisor review</small><strong>เตรียมชุดนำเสนอ Breaker A3</strong><p>สรุป hero render, dimension, reference evidence และข้อจำกัดให้หัวหน้าตัดสินใจได้เร็ว</p></div>
+        <div class="readiness pending"><small>Engineering evidence</small><strong>ปิดข้อมูลรุ่นและขนาด</strong><p>รวบรวม exact model, datasheet, internal arrangement และ installation routing ที่ยัง pending</p></div>
+        <div class="readiness pending"><small>IoT handoff</small><strong>จัด owner และหลักฐาน</strong><p>เติม Hardware Inventory, evidence, circuit mapping และผู้รับผิดชอบของ A3/A4</p></div>
+        <div class="readiness blocked"><small>Live integration</small><strong>ยังล็อกไว้</strong><p>ยังไม่ใส่ credential, endpoint จริง, service call, breaker control หรือ export GLB ก่อน approval</p></div>
+      </div>
+      <h4>Task วันนี้</h4>
+      <ul>
+        <li>□ เตรียม one-page supervisor review ของ Breaker A3: hero render, front/side views, reference photos และสถานะ <b>visual WIP only</b></li>
+        <li>□ ตรวจและล็อก evidence ของขนาด <code>21 × 20 × 9 cm</code> พร้อมระบุว่ายังรอ engineering verification</li>
+        <li>□ สรุป exact model, module arrangement, conduit routing และประเด็นที่ต้องให้ช่างไฟ/ผู้ดูแลยืนยัน</li>
+        <li>□ จัด Hardware Inventory ให้ครบ asset ID, vendor/model, protocol, location, channel, installation status, evidence และ owner</li>
+        <li>□ เตรียม circuit mapping sign-off สำหรับ A3/A4 และ Energy Map 4 ช่อง โดยยังไม่อ้างว่าเป็นวงจรจริงจนกว่าจะยืนยัน</li>
+        <li>□ ทบทวน read-only backend/security contract: authentication, CORS, rate limit, audit log, stale policy และ retention</li>
+      </ul>
+      <h4>ผลลัพธ์ที่ต้องส่งท้ายวัน</h4>
+      <ul>
+        <li>□ Supervisor review pack พร้อมภาพและข้อจำกัดที่ชัดเจน</li>
+        <li>□ รายการ evidence/owner/blocker ที่ติดตามต่อได้</li>
+        <li>□ Decision log แยก visual approval, engineering approval, circuit approval และ export approval</li>
+      </ul>
+      <div class="next-box"><b>Definition of Done วันนี้:</b> มีชุดข้อมูลพร้อมให้หัวหน้าตัดสินใจ, ทุก pending item มี owner หรือ blocker, WIP/original boundary ยังปลอดภัย และยังคง breaker เป็น visual-only โดยไม่มี live Home Assistant หรือ GLB export</div>
     </article>
   </section>
 
