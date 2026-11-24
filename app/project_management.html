@@ -33,7 +33,7 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
       <h1>โครงการพัฒนาโมเดล 3D ห้อง A3 และ A4</h1>
       <p class="subtitle">ติดตามงานสำรวจ จัดทำข้อมูลอุปกรณ์ พัฒนาโมเดล 3D และเตรียมระบบแสดงผลบนเว็บไซต์</p>
     </div>
-    <div class="date">อัปเดตล่าสุด: 23 พฤศจิกายน 2569 · Frontend-first Digital Twin</div>
+    <div class="date">อัปเดตล่าสุด: 24 พฤศจิกายน 2569 · 3D Visual Fidelity &amp; PBR Calibration</div>
   </header>
 
   <div class="stats">
@@ -95,6 +95,38 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
       <article class="task"><div class="task-top"><h3>วัด performance บน target device และ production network</h3><span class="tag planned">วัดผลแล้ว · รอรับรอง</span></div><div class="result"><b>ผลลัพธ์:</b> ทดสอบ Acer Nitro ANV15-51 และจำลอง mobile 4G/3G; บันทึก FPS, render calls, triangles, GLB size และ network observations ใน <code>docs/TARGET_DEVICE_PERFORMANCE_2026-11-16.md</code>; desktop เฉลี่ย 28.24 FPS, mobile emulation ราว 8–16 FPS และมี 765 render calls/frame โดย acceptance thresholds กับ physical mobile test ยัง pending</div></article>
       <article class="task"><div class="task-top"><h3>กำหนดแนวทาง Home Assistant Read-only Integration</h3><span class="tag planned">รอข้อมูลผู้ดูแล</span></div><div class="result"><b>สถานะ:</b> กำหนดเป้าหมายเป็น read-only state display โดยไม่เปิด write/live control; รอ entity inventory, backend endpoint, security review และ circuit mapping จากผู้ดูแลใน <code>docs/HOME_ASSISTANT_READ_ONLY_DECISION_2026-11-16.md</code></div></article>
     </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>สรุปผลการทำงานล่าสุด</h2><span class="legend">24 พฤศจิกายน 2569 · High-end Room Visual Pass</span></div>
+    <article class="daily">
+      <h3>ยกระดับห้อง A3–A4 จากแบบจำลองเป็น Presentation-ready Digital Twin</h3>
+      <div class="readiness-grid" aria-label="สถานะงานภาพ 3D ล่าสุด">
+        <div class="readiness ready"><small>Room integration</small><strong>ผ่าน Final QA</strong><p>ตรวจ A3, A4, transition, hierarchy, camera, props และ protected placement แล้ว พร้อมใช้เป็น source สำหรับ handoff</p></div>
+        <div class="readiness ready"><small>Material calibration</small><strong>ครบ Close-up ชุด A–E</strong><p>ปรับผนัง, OSB, เหล็ก, พื้น, พรม, กระจก, hardware, เฟอร์นิเจอร์ และอุปกรณ์จากภาพอ้างอิงจริง</p></div>
+        <div class="readiness observed"><small>Free PBR pipeline</small><strong>สร้าง maps อัตโนมัติแล้ว</strong><p>สร้าง normal/roughness/height/AO สำหรับ wall, floor, OSB, rug และ canvas โดยยังคง Base Color แบบ calibrated เพื่อป้องกัน perspective stretch</p></div>
+        <div class="readiness pending"><small>Final delivery</small><strong>รอ multi-camera render / GLB acceptance</strong><p>Hero render พร้อมแล้ว แต่การ export GLB และ live Home Assistant integration ยังอยู่หลัง approval gate</p></div>
+      </div>
+      <h4>รายการที่ทำแล้ว</h4>
+      <ul>
+        <li>✓ ปรับเก้าอี้โซฟา A4 แบบ Club Chair 2 ตัว พร้อมผ้าคลุมเขียวมะกอก, seam, drape และจัดตำแหน่งคู่เก้าอี้ให้ตรงโต๊ะ</li>
+        <li>✓ ปรับผนังไม้โทนน้ำผึ้ง, ฝ้า OSB, โครงเหล็กดำ, พื้นไม้, พรม, ประตู/หน้าต่าง และระบบแสงจากภาพ overview และ close-up</li>
+        <li>✓ สร้างและปรับชั้นวาง A4 SW แบบ open-frame พร้อมกล่องเกม, ต้นไม้, ตะเกียง, หมุดยึดและยางรองขา</li>
+        <li>✓ เพิ่ม Props &amp; Real-use details: string lights, TV cable, banner, storage crates, lantern และรายละเอียดปลั๊ก/สวิตช์/เบรกเกอร์</li>
+        <li>✓ ปรับ Hero camera, AgX color management, contact lighting และ render preset <code>1920×1200</code></li>
+        <li>✓ สร้างภาพ Hero Final ที่ <code>blender/source/renders/A3_A4_HERO_FINAL.png</code></li>
+        <li>✓ สร้าง PBR maps อัตโนมัติใน <code>assets/pbr_auto/</code> สำหรับ <code>wall_wood</code>, <code>floor_wood</code>, <code>osb</code>, <code>rug</code> และ <code>canvas</code></li>
+        <li>✓ ตรวจพบและย้อน direct-photo mapping ที่ทำให้ texture ยืด ก่อนเปลี่ยนเป็นการเชื่อม normal/roughness แบบ conservative</li>
+      </ul>
+      <h4>สถานะและงานถัดไป</h4>
+      <ul>
+        <li>ฉากหลักอยู่ที่ <code>blender/source/iv_a3_a4_uv_texture_workflow_v16_breakerA3_highend_SINGLE_FILE_v22.blend</code> และตั้งค่า <code>ROOM_HANDOFF_READY = true</code></li>
+        <li>ทำ Final multi-camera render set: Hero Wide, A4 Detail, A3 Detail, Transition/TV และ Electrical/IoT</li>
+        <li>ตรวจ UV/tileable albedo ก่อนเปิดใช้ photo color maps; ปัจจุบันใช้ photo-derived normal/roughness เพื่อความเสถียร</li>
+        <li>หลัง visual acceptance จึงค่อยทำ scoped GLB export และ frontend regression test โดยคง breaker visual-only และ Home Assistant read-only gate</li>
+      </ul>
+      <div class="next-box"><b>สถานะล่าสุด:</b> โมเดลห้องผ่าน Architecture, Material, Lighting, Props, Furniture Construction และ Final Room QA แล้ว พร้อมใช้ทำภาพนำเสนอและ handoff. ขั้นต่อไปเน้น render/acceptance ไม่ใช่เพิ่ม geometry จำนวนมาก และยังไม่เปิด live I/O หรือ Home Assistant control</div>
+    </article>
   </section>
 
   <section>
