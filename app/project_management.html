@@ -33,7 +33,7 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
       <h1>โครงการพัฒนาโมเดล 3D ห้อง A3 และ A4</h1>
       <p class="subtitle">ติดตามงานสำรวจ จัดทำข้อมูลอุปกรณ์ พัฒนาโมเดล 3D และเตรียมระบบแสดงผลบนเว็บไซต์</p>
     </div>
-    <div class="date">อัปเดตล่าสุด: 24 พฤศจิกายน 2569 · 3D Visual Fidelity &amp; PBR Calibration</div>
+    <div class="date">อัปเดตล่าสุด: 25 พฤศจิกายน 2569 · Free Photo-based PBR Calibration</div>
   </header>
 
   <div class="stats">
@@ -98,7 +98,7 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
   </section>
 
   <section>
-    <div class="section-head"><h2>สรุปผลการทำงานล่าสุด</h2><span class="legend">24 พฤศจิกายน 2569 · High-end Room Visual Pass</span></div>
+    <div class="section-head"><h2>สรุปผลการทำงานล่าสุด</h2><span class="legend">25 พฤศจิกายน 2569 · Free Photo-based PBR Calibration</span></div>
     <article class="daily">
       <h3>ยกระดับห้อง A3–A4 จากแบบจำลองเป็น Presentation-ready Digital Twin</h3>
       <div class="readiness-grid" aria-label="สถานะงานภาพ 3D ล่าสุด">
@@ -117,12 +117,15 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
         <li>✓ สร้างภาพ Hero Final ที่ <code>blender/source/renders/A3_A4_HERO_FINAL.png</code></li>
         <li>✓ สร้าง PBR maps อัตโนมัติใน <code>assets/pbr_auto/</code> สำหรับ <code>wall_wood</code>, <code>floor_wood</code>, <code>osb</code>, <code>rug</code> และ <code>canvas</code></li>
         <li>✓ ตรวจพบและย้อน direct-photo mapping ที่ทำให้ texture ยืด ก่อนเปลี่ยนเป็นการเชื่อม normal/roughness แบบ conservative</li>
+        <li>✓ สร้าง free PBR maps อัตโนมัติจาก close-up wall, floor, OSB, rug และ canvas ผ่าน Blender preprocessing และเชื่อม normal/roughness เข้ากับวัสดุ</li>
+        <li>✓ ตรวจ Hero render หลัง PBR integration แล้ว ไม่พบ texture stretching; กำหนดให้ photo-derived albedo ต้องผ่าน tileable/UV preprocessing ก่อนใช้งานจริง</li>
       </ul>
       <h4>สถานะและงานถัดไป</h4>
       <ul>
         <li>ฉากหลักอยู่ที่ <code>blender/source/iv_a3_a4_uv_texture_workflow_v16_breakerA3_highend_SINGLE_FILE_v22.blend</code> และตั้งค่า <code>ROOM_HANDOFF_READY = true</code></li>
         <li>ทำ Final multi-camera render set: Hero Wide, A4 Detail, A3 Detail, Transition/TV และ Electrical/IoT</li>
         <li>ตรวจ UV/tileable albedo ก่อนเปิดใช้ photo color maps; ปัจจุบันใช้ photo-derived normal/roughness เพื่อความเสถียร</li>
+        <li>ทำ Free PBR ต่อสำหรับ wall/floor/OSB/rug/canvas แล้ว; photo albedo ยังต้องผ่าน tileable/UV cleanup ก่อนเปิดใช้</li>
         <li>หลัง visual acceptance จึงค่อยทำ scoped GLB export และ frontend regression test โดยคง breaker visual-only และ Home Assistant read-only gate</li>
       </ul>
       <div class="next-box"><b>สถานะล่าสุด:</b> โมเดลห้องผ่าน Architecture, Material, Lighting, Props, Furniture Construction และ Final Room QA แล้ว พร้อมใช้ทำภาพนำเสนอและ handoff. ขั้นต่อไปเน้น render/acceptance ไม่ใช่เพิ่ม geometry จำนวนมาก และยังไม่เปิด live I/O หรือ Home Assistant control</div>
