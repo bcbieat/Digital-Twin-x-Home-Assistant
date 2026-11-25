@@ -98,7 +98,28 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
   </section>
 
   <section>
-    <div class="section-head"><h2>สรุปผลการทำงานล่าสุด</h2><span class="legend">25 พฤศจิกายน 2569 · Free Photo-based PBR Calibration</span></div>
+    <div class="section-head"><h2>สรุปผลการทำงานประจำวัน</h2><span class="legend">23 พฤศจิกายน 2569 · Room Reference &amp; Architecture Pass</span></div>
+    <article class="daily">
+      <h3>เก็บข้อมูลภาพจริงและปรับโครงสร้างห้องตามสถานที่</h3>
+      <div class="readiness-grid" aria-label="สถานะงานวันที่ 23 พฤศจิกายน">
+        <div class="readiness ready"><small>Reference photos</small><strong>รวบรวมภาพ overview แล้ว</strong><p>ใช้ภาพมุม NE/NW/SE/SW, ภาพจากประตู และภาพผนัง A3 north/east เป็นหลักฐานอ้างอิง</p></div>
+        <div class="readiness ready"><small>Architecture</small><strong>ปรับวัสดุโครงสร้าง</strong><p>เทียบผนังไม้, OSB, โครงเหล็ก, พื้น, หน้าต่าง และกรอบประตูกับรูปสถานที่จริง</p></div>
+        <div class="readiness observed"><small>Furniture placement</small><strong>รักษา manual placement</strong><p>คงตำแหน่งอุปกรณ์และเฟอร์นิเจอร์ที่ผู้ใช้จัดไว้ พร้อมตรวจจุดอ้างอิงของโต๊ะและเก้าอี้ A4</p></div>
+        <div class="readiness pending"><small>Next pass</small><strong>เตรียม close-up materials</strong><p>จัดชุดข้อมูลสำหรับภาพระยะใกล้ของผนัง พื้น พรม ประตู เฟอร์นิเจอร์ และอุปกรณ์</p></div>
+      </div>
+      <h4>รายการที่ทำแล้ว</h4>
+      <ul>
+        <li>✓ เพิ่มและตรวจรูปภาพรวมของห้อง 10 ภาพจากโฟลเดอร์อ้างอิง</li>
+        <li>✓ ปรับผนังภายในให้ใช้วัสดุไม้เดียวกันทั้ง A3, transition และ A4</li>
+        <li>✓ ปรับโทนผนังเป็นไม้สีน้ำผึ้ง/น้ำตาลอุ่น พร้อมคงร่องแผงและโครงเหล็กดำ</li>
+        <li>✓ ตรวจวัสดุ OSB, พื้นไม้, หน้าต่าง และโครงสร้างก่อนเข้าสู่ material close-up pass</li>
+      </ul>
+      <div class="next-box"><b>สรุปวันที่ 23 พ.ย.:</b> ปิดงาน reference/architecture pass และเตรียมข้อมูล close-up materials สำหรับรอบ High-end Visual Pass ต่อไป</div>
+    </article>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>สรุปผลการทำงาน</h2><span class="legend">24 พฤศจิกายน 2569 · High-end Room Visual Pass</span></div>
     <article class="daily">
       <h3>ยกระดับห้อง A3–A4 จากแบบจำลองเป็น Presentation-ready Digital Twin</h3>
       <div class="readiness-grid" aria-label="สถานะงานภาพ 3D ล่าสุด">
@@ -115,10 +136,9 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
         <li>✓ เพิ่ม Props &amp; Real-use details: string lights, TV cable, banner, storage crates, lantern และรายละเอียดปลั๊ก/สวิตช์/เบรกเกอร์</li>
         <li>✓ ปรับ Hero camera, AgX color management, contact lighting และ render preset <code>1920×1200</code></li>
         <li>✓ สร้างภาพ Hero Final ที่ <code>blender/source/renders/A3_A4_HERO_FINAL.png</code></li>
-        <li>✓ สร้าง PBR maps อัตโนมัติใน <code>assets/pbr_auto/</code> สำหรับ <code>wall_wood</code>, <code>floor_wood</code>, <code>osb</code>, <code>rug</code> และ <code>canvas</code></li>
-        <li>✓ ตรวจพบและย้อน direct-photo mapping ที่ทำให้ texture ยืด ก่อนเปลี่ยนเป็นการเชื่อม normal/roughness แบบ conservative</li>
-        <li>✓ สร้าง free PBR maps อัตโนมัติจาก close-up wall, floor, OSB, rug และ canvas ผ่าน Blender preprocessing และเชื่อม normal/roughness เข้ากับวัสดุ</li>
-        <li>✓ ตรวจ Hero render หลัง PBR integration แล้ว ไม่พบ texture stretching; กำหนดให้ photo-derived albedo ต้องผ่าน tileable/UV preprocessing ก่อนใช้งานจริง</li>
+        <li>✓ สร้าง Hero camera, Final Room Integration &amp; QA และภาพ <code>A3_A4_HERO_FINAL.png</code> สำหรับนำเสนอ</li>
+        <li>✓ ปรับวัสดุห้อง เฟอร์นิเจอร์ Props ชั้นวาง A4 SW และ lighting ให้พร้อม visual handoff</li>
+        <li>✓ จัดสถานะฉากเป็น <code>FINAL_HERO_RENDER</code> และ <code>ROOM_HANDOFF_READY = true</code></li>
       </ul>
       <h4>สถานะและงานถัดไป</h4>
       <ul>
@@ -329,7 +349,29 @@ section{display:grid;gap:12px}.section-head{display:flex;justify-content:space-b
   </section>
 
   <section>
-    <div class="section-head"><h2>แผนงานวันนี้</h2><span class="legend">25 พฤศจิกายน 2569 · Frontend-first Digital Twin</span></div>
+    <div class="section-head"><h2>สรุปผลการทำงาน</h2><span class="legend">25 พฤศจิกายน 2569 · Free Photo-based PBR Calibration</span></div>
+    <article class="daily">
+      <h3>เริ่ม Photo-based PBR ด้วยเครื่องมือฟรี และตรวจความเสถียรของวัสดุ</h3>
+      <div class="readiness-grid" aria-label="สถานะงาน PBR วันที่ 25 พฤศจิกายน">
+        <div class="readiness ready"><small>Free PBR automation</small><strong>สร้าง maps แล้ว</strong><p>สร้าง albedo, height, normal, roughness และ AO อัตโนมัติจากรูป close-up wall, floor, OSB, rug และ canvas</p></div>
+        <div class="readiness observed"><small>Material integration</small><strong>เชื่อม normal/roughness แล้ว</strong><p>นำ maps ที่สร้างด้วย Blender preprocessing กลับเข้า material ของ wall, floor, OSB, rug และ canvas โดยคงตำแหน่งโมเดล</p></div>
+        <div class="readiness ready"><small>QA correction</small><strong>ป้องกัน texture stretching</strong><p>ตรวจพบ direct-photo mapping ทำให้ภาพยืดและย้อนกลับแล้ว; ใช้ photo-derived normal/roughness แบบ conservative</p></div>
+        <div class="readiness pending"><small>Next PBR gate</small><strong>รอ tileable albedo</strong><p>Albedo จากภาพถ่ายต้องผ่าน crop, perspective correction และ tileable/UV cleanup ก่อนเปิดใช้กับ Base Color</p></div>
+      </div>
+      <h4>รายการที่ทำแล้ว</h4>
+      <ul>
+        <li>✓ เปิด Materialize 1.78 และตรวจ workflow ฟรีสำหรับทำ PBR</li>
+        <li>✓ สร้าง output folders ที่ <code>assets/pbr_auto/wall_wood</code>, <code>floor_wood</code>, <code>osb</code>, <code>rug</code> และ <code>canvas</code></li>
+        <li>✓ สร้าง maps 1024×1024 จากรูป close-up ด้วย Blender preprocessing ที่ตรวจสอบย้อนกลับได้</li>
+        <li>✓ เชื่อม photo-derived normal และ roughness เข้ากับ material อย่างปลอดภัย</li>
+        <li>✓ ตรวจ Hero render และยืนยันว่าไม่มีลายภาพถ่ายยืด/สะท้อนซ้ำบนผนังหรือผ้า</li>
+      </ul>
+      <div class="next-box"><b>สถานะวันที่ 25 พ.ย.:</b> Free PBR pipeline ทำงานแล้วในระดับ normal/roughness/height/AO. ขั้นต่อไปคือทำ tileable albedo อย่างถูกต้องก่อนใช้เป็น Base Color และคงวัสดุเดิมเป็น fallback จนกว่าจะผ่าน QA</div>
+    </article>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>แผนงานต่อเนื่อง</h2><span class="legend">อ้างอิงแผน 23 พฤศจิกายน 2569 · Frontend-first Digital Twin</span></div>
     <article class="daily">
       <h3>ทำหน้าบ้าน Digital Twin ให้สมจริงและพร้อมส่งต่อ Backend</h3>
       <div class="readiness-grid" aria-label="แผนงาน Frontend-first Digital Twin วันนี้">
